@@ -24,6 +24,10 @@ int main(int argc, char *argv[])
         qDebug()<<"fail to open!"<<endl<<db.lastError();
     }else{
         qDebug()<<"successful!"<<endl;
+        QSqlQuery query;
+        query.exec("create table test(id integer primary key, name nvarchar(20),age int)");
+        query.exec("insert into test values(1,'小明',14)");
+
         db.close();
     }
     return a.exec();
