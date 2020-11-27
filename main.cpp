@@ -9,12 +9,17 @@
 #include<QVariant>
 #include<QSqlError>
 #include<QString>
+#include<loginwidget.h>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    LogInWidget *loginwidget=new LogInWidget();
+    loginwidget->show();
+    return a.exec();
+}
+
+/*
     QSqlDatabase db=QSqlDatabase::addDatabase("QODBC");
     db.setDatabaseName("E_Chain_Database");
     db.setUserName("sa");
@@ -30,5 +35,4 @@ int main(int argc, char *argv[])
         //此行用于测试pull功能
         db.close();
     }
-    return a.exec();
-}
+*/
