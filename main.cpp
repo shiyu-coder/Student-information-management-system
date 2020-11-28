@@ -9,12 +9,24 @@
 #include<QVariant>
 #include<QSqlError>
 #include<QString>
+#include<loginwidget.h>
+#include<data.h>
+#include<QVector>
+#include<QString>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    LogInWidget *loginwidget=new LogInWidget();
+    loginwidget->show();
+    Data *data=new Data();
+    QVector<QString> keys;
+    keys.push_back(QString("202015"));
+    data->getFundMsgFromApi(keys);
+    return a.exec();
+}
+
+/*
     QSqlDatabase db=QSqlDatabase::addDatabase("QODBC");
     db.setDatabaseName("E_Chain_Database");
     db.setUserName("sa");
@@ -27,8 +39,7 @@ int main(int argc, char *argv[])
         QSqlQuery query;
         query.exec("create table test(id integer primary key, name nvarchar(20),age int)");
         query.exec("insert into test values(1,'小明',14)");
-
+        //此行用于测试pull功能
         db.close();
     }
-    return a.exec();
-}
+*/
