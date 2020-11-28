@@ -6,42 +6,67 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1083</width>
-    <height>783</height>
+    <width>1200</width>
+    <height>815</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1200</width>
+    <height>16777215</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>E_Chain</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QToolButton" name="toolButton_3">
+       <widget class="QToolButton" name="AllFundButton">
+        <property name="styleSheet">
+         <string notr="true">QToolButton#AllFundButton{background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;} QToolButton#AllFundButton:hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} QToolButton#AllFundButton:pressed{background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} 
+</string>
+        </property>
         <property name="text">
-         <string>...</string>
+         <string>全部基金</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_4">
+       <widget class="QToolButton" name="RankButton">
+        <property name="styleSheet">
+         <string notr="true">QToolButton#RankButton{background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;} QToolButton#RankButton:hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} QToolButton#RankButton:pressed{background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} </string>
+        </property>
         <property name="text">
-         <string>...</string>
+         <string>基金排行</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton_2">
+       <widget class="QToolButton" name="QueryButton">
+        <property name="styleSheet">
+         <string notr="true">QToolButton#QueryButton{background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;} QToolButton#QueryButton:hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} QToolButton#QueryButton:pressed{background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} </string>
+        </property>
         <property name="text">
-         <string>...</string>
+         <string>查询基金</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="toolButton">
+       <widget class="QToolButton" name="MyFundButton">
+        <property name="styleSheet">
+         <string notr="true">QToolButton#MyFundButton{background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;} QToolButton#MyFundButton:hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} QToolButton#MyFundButton:pressed{background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} </string>
+        </property>
         <property name="text">
-         <string>...</string>
+         <string>我的投资</string>
         </property>
        </widget>
       </item>
@@ -50,13 +75,30 @@
     <item row="1" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QTextBrowser" name="textBrowser"/>
-      </item>
-      <item>
        <widget class="QTableWidget" name="tableWidget">
         <property name="maximumSize">
          <size>
-          <width>250</width>
+          <width>1250</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <column>
+         <property name="text">
+          <string>基金代码</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>基金名称</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextBrowser" name="textBrowser">
+        <property name="maximumSize">
+         <size>
+          <width>350</width>
           <height>16777215</height>
          </size>
         </property>
@@ -71,7 +113,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1083</width>
+     <width>1200</width>
      <height>25</height>
     </rect>
    </property>

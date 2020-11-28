@@ -19,12 +19,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     data.cpp \
+    fund.cpp \
     loginwidget.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     data.h \
+    fund.h \
     loginwidget.h \
     mainwindow.h
 
