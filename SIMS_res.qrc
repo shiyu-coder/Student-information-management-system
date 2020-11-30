@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/SIM_System_Pics">
+        <file alias="LoginName_Pic">resources/160674565168168.png</file>
+        <file>resources/Background.png</file>
+        <file>resources/Button.png</file>
+        <file>resources/Character.png</file>
+        <file>resources/Icon1.png</file>
+        <file>resources/Icon2.png</file>
+        <file>resources/Icon3.png</file>
+        <file>resources/Icon4.png</file>
+        <file>resources/Signup.png</file>
+    </qresource>
+</RCC>
