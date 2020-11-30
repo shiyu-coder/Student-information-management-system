@@ -35,7 +35,7 @@ FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += \
-    E_Chain_zh_CN.ts
+    SIM_System_zh_CN.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
