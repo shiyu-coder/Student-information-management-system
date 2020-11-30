@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
     LogInWidget *loginwidget=new LogInWidget();
     loginwidget->show();
     Data *data=new Data();
-    //测试pull功能
     QVector<QString> keys;
+    //test second
     keys.push_back(QString("202015"));
     data->getFundMsgFromApi(keys);
     return a.exec();
