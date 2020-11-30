@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     LogInWidget *loginwidget=new LogInWidget();
     loginwidget->show();
+    //123456
     Data *data=new Data();
     QVector<QString> keys;
     //last
