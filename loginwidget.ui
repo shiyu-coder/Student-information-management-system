@@ -72,7 +72,7 @@ pressed{background-color:rgb(85, 170, 255);border-style: inset; }</string>
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/SIM_System_Pics/LoginName_Pic&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="TypeLineEdit">
     <property name="geometry">
      <rect>
       <x>590</x>
@@ -85,7 +85,7 @@ pressed{background-color:rgb(85, 170, 255);border-style: inset; }</string>
      <string notr="true">border :1px ;background-color: rgba(0,0,0,0)</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_3">
+   <widget class="QLineEdit" name="NameLineEdit">
     <property name="geometry">
      <rect>
       <x>590</x>
@@ -98,7 +98,7 @@ pressed{background-color:rgb(85, 170, 255);border-style: inset; }</string>
      <string notr="true">border :1px ;background-color: rgba(0,0,0,0)</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="KeuLineEdit">
     <property name="geometry">
      <rect>
       <x>590</x>
