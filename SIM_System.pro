@@ -18,21 +18,34 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    data.cpp \
-    fund.cpp \
+    adminwindow.cpp \
+    dataquery.cpp \
+    lesson.cpp \
     loginwidget.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    student.cpp \
+    studentwindow.cpp \
+    teacher.cpp \
+    teacherwindow.cpp
 
 HEADERS += \
-    data.h \
-    fund.h \
+    adminwindow.h \
+    dataquery.h \
+    lesson.h \
     loginwidget.h \
-    mainwindow.h
+    mainwindow.h \
+    student.h \
+    studentwindow.h \
+    teacher.h \
+    teacherwindow.h
 
 FORMS += \
+    adminwindow.ui \
     loginwidget.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    studentwindow.ui \
+    teacherwindow.ui
 
 TRANSLATIONS += \
     SIM_System_zh_CN.ts
