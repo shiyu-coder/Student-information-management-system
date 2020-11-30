@@ -131,14 +131,14 @@
   <widget class="QLabel" name="Name">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>130</x>
      <y>30</y>
-     <width>421</width>
+     <width>491</width>
      <height>81</height>
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:22pt; font-weight:600;&quot;&gt;E_Chain 投资管理系统&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:22pt; font-weight:600;&quot;&gt;E_Chain 南京大学信息门户&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="KeyLabel">
