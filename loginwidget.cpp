@@ -20,3 +20,11 @@ void LogInWidget::on_ConfirmButton_clicked()
     mainWindow->show();
     this->close();
 }
+
+void LogInWidget::on_toolButton_clicked()
+{
+    MainWindow *mainWindow=new MainWindow();
+    mainWindow->show();
+    this->close();
+
+}
