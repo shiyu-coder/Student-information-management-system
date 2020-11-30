@@ -10,7 +10,6 @@
 #include<QSqlError>
 #include<QString>
 #include<loginwidget.h>
-#include<data.h>
 #include<QVector>
 #include<QString>
 
@@ -19,11 +18,11 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     LogInWidget *loginwidget=new LogInWidget();
     loginwidget->show();
-    Data *data=new Data();
-    QVector<QString> keys;
+    //Data *data=new Data();
+    //QVector<QString> keys;
     //last
-    keys.push_back(QString("202015"));
-    data->getFundMsgFromApi(keys);
+    //keys.push_back(QString("202015"));
+    //data->getFundMsgFromApi(keys);
     return a.exec();
 }
 
