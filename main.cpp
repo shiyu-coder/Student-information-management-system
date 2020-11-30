@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     loginwidget->show();
     Data *data=new Data();
     QVector<QString> keys;
+    //test
     keys.push_back(QString("202015"));
     data->getFundMsgFromApi(keys);
     return a.exec();
