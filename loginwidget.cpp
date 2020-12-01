@@ -1,6 +1,7 @@
 #include "loginwidget.h"
 #include "ui_loginwidget.h"
 #include<mainwindow.h>
+#include<adminwindow.h>
 
 LogInWidget::LogInWidget(QWidget *parent) :
     QWidget(parent),
@@ -23,8 +24,8 @@ void LogInWidget::on_ConfirmButton_clicked()
 
 void LogInWidget::on_toolButton_clicked()
 {
-    MainWindow *mainWindow=new MainWindow();
-    mainWindow->show();
+    AdminWindow *adminWindow=new AdminWindow();
+    adminWindow->show();
     this->close();
 
 }
