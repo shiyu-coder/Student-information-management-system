@@ -13,5 +13,6 @@
         <file>resources/logo1.png</file>
         <file>resources/logo2.jpg</file>
         <file>resources/logo3.jpg</file>
+        <file>resources/login-settings.png</file>
     </qresource>
 </RCC>

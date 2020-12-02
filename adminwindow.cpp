@@ -12,3 +12,11 @@ AdminWindow::~AdminWindow()
 {
     delete ui;
 }
+//导入课程触发函数
+void AdminWindow::on_actionLoadClassFromWeb_triggered()
+{
+    LoadClassFromWebWidget *loadWidget=new LoadClassFromWebWidget();
+    loadWidget->show();
+    WebLogWidget *webLogWidget=new WebLogWidget();
+    webLogWidget->show();
+}

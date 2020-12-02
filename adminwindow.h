@@ -2,6 +2,8 @@
 #define ADMINWINDOW_H
 
 #include <QMainWindow>
+#include<loadclassfromwebwidget.h>
+#include<weblogwidget.h>
 
 namespace Ui {
 class AdminWindow;
@@ -14,6 +16,9 @@ class AdminWindow : public QMainWindow
 public:
     explicit AdminWindow(QWidget *parent = nullptr);
     ~AdminWindow();
+
+private slots:
+    void on_actionLoadClassFromWeb_triggered();
 
 private:
     Ui::AdminWindow *ui;
