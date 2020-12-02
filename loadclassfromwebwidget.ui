@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>导入课程</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="SIMS_res.qrc">
+    <normaloff>:/SIM_System_Pics/resources/icon_login.png</normaloff>:/SIM_System_Pics/resources/icon_login.png</iconset>
   </property>
   <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
@@ -25,7 +29,7 @@
    <widget class="QComboBox" name="semesterBox">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>210</x>
       <y>40</y>
       <width>92</width>
       <height>23</height>
@@ -48,7 +52,7 @@
    <widget class="QComboBox" name="yearBox">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>60</x>
       <y>40</y>
       <width>77</width>
       <height>23</height>
@@ -81,7 +85,7 @@
    <widget class="QToolButton" name="getLessonButton">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>390</x>
       <y>30</y>
       <width>129</width>
       <height>40</height>
@@ -95,22 +99,6 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QToolButton#getLessonButton{background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;} QToolButton#getLessonButton:hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} QToolButton#getLessonButton:pressed{background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} </string>
-    </property>
-    <property name="text">
-     <string>登录教服系统</string>
-    </property>
-   </widget>
-   <widget class="QToolButton" name="ConfirmButton">
-    <property name="geometry">
-     <rect>
-      <x>410</x>
-      <y>30</y>
-      <width>129</width>
-      <height>40</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QToolButton#ConfirmButton{background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;} QToolButton#ConfirmButton:hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} QToolButton#ConfirmButton:pressed{background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;} </string>
     </property>
     <property name="text">
      <string>获取课程</string>
@@ -143,6 +131,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="SIMS_res.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -4,6 +4,7 @@
 #include <QObject>
 #include<QMap>
 #include<QString>
+#include<QDate>
 
 class Data
 {
@@ -14,6 +15,7 @@ public:
      * 管理员登录教务系统后将更新此cookie
      */
     QString cookie;
+    QString getCurrentTime();
 private:
     /**
      * @brief Data

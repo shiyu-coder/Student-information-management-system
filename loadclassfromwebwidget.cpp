@@ -6,10 +6,11 @@ LoadClassFromWebWidget::LoadClassFromWebWidget(QWidget *parent) :
     ui(new Ui::LoadClassFromWebWidget)
 {
     ui->setupUi(this);
-    ui->spiderMsg->append("Loading...");
+    Data *data=Data::getData();
+    ui->spiderMsg->append(data->getCurrentTime()+"Loading...");
     manager=new QNetworkAccessManager(this);
     connect(manager,&QNetworkAccessManager::finished,this,&LoadClassFromWebWidget::ReplyFinished);
-    ui->spiderMsg->append("Completed");
+    ui->spiderMsg->append(data->getCurrentTime()+"Ready");
 }
 
 LoadClassFromWebWidget::~LoadClassFromWebWidget()
@@ -20,6 +21,7 @@ LoadClassFromWebWidget::~LoadClassFromWebWidget()
 void LoadClassFromWebWidget::on_getLessonButton_clicked()
 {
     //先获取学年，学期信息
+    Data* data=Data::getData();
     int inputYearIndex=ui->yearBox->currentIndex();
     int inputSemesterIndex=ui->semesterBox->currentIndex();
     QDate date(QDate::currentDate());
@@ -34,11 +36,11 @@ void LoadClassFromWebWidget::on_getLessonButton_clicked()
     qDebug()<<"URL::::"<<leUrl;
     //WebLogWidget *webLogWidget=new WebLogWidget();
     //webLogWidget->show();
-    Data* data=Data::getData();
+
     leCookie=data->cookie;
     qDebug()<<"Cookie-->"<<leCookie;
     if(leUrl!=""&&leCookie!=""){//如果都没问题，就可以开始获取html了
-        ui->spiderMsg->append("Begin request");
+        ui->spiderMsg->append(data->getCurrentTime()+"Begin request...");
         //浏览器伪装
         QString userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/18.17763";
         QByteArray leCookieByte=leCookie.toUtf8();
@@ -53,12 +55,13 @@ void LoadClassFromWebWidget::on_getLessonButton_clicked()
         //获取html
         manager->get(request);
     }else{
-        ui->spiderMsg->append("url or cookie failed!");
+        ui->spiderMsg->append(data->getCurrentTime()+"Geting url or cookie failed!");
     }
 }
 
 void LoadClassFromWebWidget::ReplyFinished(QNetworkReply *reply){
     //获取接收到的信息
+    Data* data=Data::getData();
     qDebug()<<"gotHtml";
     ori_lesson=reply->readAll();
     QFile out_file("result.txt");
@@ -70,7 +73,7 @@ void LoadClassFromWebWidget::ReplyFinished(QNetworkReply *reply){
     if(ori_lesson!=""){
         getLessonMsgFromHtml();
     }else{
-        ui->spiderMsg->append("Lesson information request failed!");
+        ui->spiderMsg->append(data->getCurrentTime()+"Lesson information request failed!");
     }
 }
 
