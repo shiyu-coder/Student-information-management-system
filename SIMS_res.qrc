@@ -9,5 +9,7 @@
         <file>resources/Icon3.png</file>
         <file>resources/Icon4.png</file>
         <file>resources/Signup.png</file>
+        <file>resources/background2.jpg</file>
+        <file>resources/login.png</file>
     </qresource>
 </RCC>

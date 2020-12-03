@@ -26,7 +26,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">#frame{border-image: url(:/SIM_System_Pics/resources/Signup.png);}
+    <string notr="true">#frame{border-image: url(:/SIM_System_Pics/resources/background2.jpg);}
 #frame * {
 border-image:url();
 }</string>
@@ -40,8 +40,8 @@ border-image:url();
    <widget class="QToolButton" name="toolButton">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>500</y>
+      <x>630</x>
+      <y>570</y>
       <width>171</width>
       <height>41</height>
      </rect>
@@ -56,61 +56,114 @@ pressed{background-color:rgb(85, 170, 255);border-style: inset; }</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>90</y>
-      <width>761</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/SIM_System_Pics/LoginName_Pic&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="TypeLineEdit">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>370</y>
-      <width>180</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border :1px ;background-color: rgba(0,0,0,0)</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="NameLineEdit">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>260</y>
-      <width>180</width>
-      <height>30</height>
+      <x>600</x>
+      <y>370</y>
+      <width>261</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">border :1px ;background-color: rgba(0,0,0,0)</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="KeuLineEdit">
+   <widget class="QToolButton" name="toolButton_2">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>320</y>
-      <width>180</width>
-      <height>30</height>
+      <x>240</x>
+      <y>160</y>
+      <width>581</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(:/SIM_System_Pics/LoginName_Pic)</string>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>380</y>
+      <width>261</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>390</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(:/SIM_System_Pics/resources/Icon1.png)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>470</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(:/SIM_System_Pics/resources/Icon3.png)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>490</y>
+      <width>261</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>602</x>
+      <y>470</y>
+      <width>261</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">border :1px ;background-color: rgba(0,0,0,0)</string>
     </property>
    </widget>
+   <zorder>lineEdit</zorder>
+   <zorder>toolButton</zorder>
+   <zorder>NameLineEdit</zorder>
+   <zorder>toolButton_2</zorder>
+   <zorder>line</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>line_2</zorder>
   </widget>
  </widget>
  <resources/>
