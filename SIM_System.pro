@@ -1,6 +1,7 @@
 QT       += core gui
 QT       += sql
 QT       += network
+QT       +=webenginewidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -19,33 +20,41 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     adminwindow.cpp \
+    data.cpp \
     dataquery.cpp \
     lesson.cpp \
+    loadclassfromwebwidget.cpp \
     loginwidget.cpp \
     main.cpp \
     mainwindow.cpp \
     student.cpp \
     studentwindow.cpp \
     teacher.cpp \
-    teacherwindow.cpp
+    teacherwindow.cpp \
+    weblogwidget.cpp
 
 HEADERS += \
     adminwindow.h \
+    data.h \
     dataquery.h \
     lesson.h \
+    loadclassfromwebwidget.h \
     loginwidget.h \
     mainwindow.h \
     student.h \
     studentwindow.h \
     teacher.h \
-    teacherwindow.h
+    teacherwindow.h \
+    weblogwidget.h
 
 FORMS += \
     adminwindow.ui \
+    loadclassfromwebwidget.ui \
     loginwidget.ui \
     mainwindow.ui \
     studentwindow.ui \
-    teacherwindow.ui
+    teacherwindow.ui \
+    weblogwidget.ui
 
 TRANSLATIONS += \
     SIM_System_zh_CN.ts

@@ -1,6 +1,7 @@
 #include "loginwidget.h"
 #include "ui_loginwidget.h"
 #include<mainwindow.h>
+#include<adminwindow.h>
 
 LogInWidget::LogInWidget(QWidget *parent) :
     QWidget(parent),
@@ -13,18 +14,12 @@ LogInWidget::~LogInWidget()
 {
     delete ui;
 }
-//登录界面确定按钮触发
-void LogInWidget::on_ConfirmButton_clicked()
-{
-    MainWindow *mainWindow=new MainWindow();
-    mainWindow->show();
-    this->close();
-}
 
+//登录界面确定按钮触发
 void LogInWidget::on_toolButton_clicked()
 {
-    MainWindow *mainWindow=new MainWindow();
-    mainWindow->show();
+    AdminWindow *adminWindow=new AdminWindow();
+    adminWindow->show();
     this->close();
 
 }
