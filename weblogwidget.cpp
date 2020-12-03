@@ -17,6 +17,8 @@ WebLogWidget::WebLogWidget(QWidget *parent) :
 
     //关联槽函数
     connect(logView->page()->profile()->cookieStore(), &QWebEngineCookieStore::cookieAdded,this,&WebLogWidget::getCookie);
+
+    QApplication::setQuitOnLastWindowClosed(true);
 }
 
 void WebLogWidget::getCookie(const QNetworkCookie &cookie){

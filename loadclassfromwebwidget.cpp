@@ -11,6 +11,7 @@ LoadClassFromWebWidget::LoadClassFromWebWidget(QWidget *parent) :
     manager=new QNetworkAccessManager(this);
     connect(manager,&QNetworkAccessManager::finished,this,&LoadClassFromWebWidget::ReplyFinished);
     ui->spiderMsg->append(data->getCurrentTime()+"Ready");
+    QApplication::setQuitOnLastWindowClosed(true);
 }
 
 LoadClassFromWebWidget::~LoadClassFromWebWidget()

@@ -20,6 +20,8 @@ public:
 private slots:
     void on_actionLoadClassFromWeb_triggered();
 
+    void closeEvent(QCloseEvent *event);
+
 private:
     Ui::AdminWindow *ui;
 };

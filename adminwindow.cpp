@@ -6,6 +6,7 @@ AdminWindow::AdminWindow(QWidget *parent) :
     ui(new Ui::AdminWindow)
 {
     ui->setupUi(this);
+    QApplication::setQuitOnLastWindowClosed(true);
 }
 
 AdminWindow::~AdminWindow()
@@ -20,3 +21,9 @@ void AdminWindow::on_actionLoadClassFromWeb_triggered()
     WebLogWidget *webLogWidget=new WebLogWidget();
     webLogWidget->show();
 }
+
+void AdminWindow::closeEvent(QCloseEvent *event){
+    qApp->quit();
+    event->accept();
+}
+
