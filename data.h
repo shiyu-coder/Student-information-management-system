@@ -5,6 +5,7 @@
 #include<QMap>
 #include<QString>
 #include<QDate>
+#include<cstdlib>
 
 class Data
 {
@@ -16,6 +17,7 @@ public:
      */
     QString cookie;
     QString getCurrentTime();
+    int stuNum = 1;
 private:
     /**
      * @brief Data
