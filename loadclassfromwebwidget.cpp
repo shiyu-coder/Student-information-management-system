@@ -79,5 +79,13 @@ void LoadClassFromWebWidget::ReplyFinished(QNetworkReply *reply){
 }
 
 void LoadClassFromWebWidget::getLessonMsgFromHtml(){
-
+    qDebug()<<"Begin regular";
+    //确定正则表达式
+    int pos(0);
+    QRegExp rx(tr(""));
+    while(rx.indexIn(ori_lesson,pos)!=-1){
+        qDebug()<<rx.capturedTexts().at(0)<<endl;
+        pos+=rx.matchedLength();
+    }
+    qDebug()<<"Regular done";
 }
