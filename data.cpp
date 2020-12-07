@@ -17,3 +17,11 @@ QString Data::getCurrentTime(){
     QString time = dateTime.toString("[yyyy-MM-dd hh:mm:ss] ");
     return time;
 }
+
+QStringList Data::getTeacherFromRawStr(QString rawStr){
+    return QStringList();
+}
+
+Lesson_time Data::getLessonTimeFromRawStr(QString rawStr){
+    return Lesson_time();
+}

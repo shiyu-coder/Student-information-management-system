@@ -103,7 +103,7 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
             count++;
             index_beg = match.capturedEnd();        //记录目前匹配的位置
         }else{
-            qDebug()<<"fail";
+            qDebug()<<"fail";//QString QStringList QVector<int>
             break;
         }
     }

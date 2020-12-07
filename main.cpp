@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     }else{
         qDebug()<<"successful!"<<endl;
         QSqlQuery query;
-        query.exec("create table test(id integer primary key, name nvarchar(20),age int)");
+        query.exec("create table %1(id integer primary key, name nvarchar(20),age int)").arg(test);
         query.exec("insert into test values(1,'小明',14)");
         //此行用于测试pull功能
         db.close();

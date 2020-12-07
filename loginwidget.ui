@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="SIMS_res.qrc">
-    <normaloff>:/SIM_System_Pics/resources/icon_login.png</normaloff>:/SIM_System_Pics/resources/icon_login.png</iconset>
+    <normaloff>:/SIM_System_Pics/resources/icon_login_2.png</normaloff>:/SIM_System_Pics/resources/icon_login_2.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>

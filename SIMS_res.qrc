@@ -14,5 +14,7 @@
         <file>resources/logo2.jpg</file>
         <file>resources/logo3.jpg</file>
         <file>resources/login-settings.png</file>
+        <file>resources/icon_login_2.png</file>
+        <file>resources/logo_3.png</file>
     </qresource>
 </RCC>
