@@ -65,6 +65,9 @@ void LoadClassFromWebWidget::ReplyFinished(QNetworkReply *reply){
     Data* data=Data::getData();
     qDebug()<<"gotHtml";
     ori_lesson=reply->readAll();
+    ori_lesson.replace('\n','p');
+    ori_lesson.replace(' ','p');
+    ori_lesson.replace('\t','p');
     QFile out_file("result.txt");
     if(out_file.open(QIODevice::WriteOnly))
     {
@@ -79,5 +82,30 @@ void LoadClassFromWebWidget::ReplyFinished(QNetworkReply *reply){
 }
 
 void LoadClassFromWebWidget::getLessonMsgFromHtml(){
-
+    qDebug()<<"Begin regular";
+    //确定正则表达式
+    QRegExp re_beg(tr("课程信息"));
+    QRegExp re_end(tr("</table>"));
+    int index_beg = 0;
+    int index_end = ori_lesson.size()-1;
+    qDebug()<<"begin with "<<index_beg<<" || end with "<<index_end;
+    QRegularExpression re("<!--p<tdpalign=\"center\"pvalign=\"middle\">(.*?)</td>p-->.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>");
+    QRegularExpressionMatch match;
+    int count=0;
+    while(index_beg<index_end){
+        match = re.match(ori_lesson,index_beg);
+        if(match.hasMatch()){
+            QString temp;
+            for(int i=1;i<=9;i++){
+                temp=match.captured(i);
+                qDebug()<<temp;
+            }
+            count++;
+            index_beg = match.capturedEnd();        //记录目前匹配的位置
+        }else{
+            qDebug()<<"fail";
+            break;
+        }
+    }
+    qDebug()<<"Regular done "<<count;
 }
