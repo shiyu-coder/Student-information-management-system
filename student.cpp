@@ -8,7 +8,7 @@ Student::Student()
 
 void Student::setSno() // 以data类中的当前学生数目作为学号
 {
-    char[9] charSno;
+    char charSno[9];
     int key = data->stuNum;
     char charKey[9];
     itoa(key,charKey,10); // 数字转字符数组
@@ -66,11 +66,11 @@ QString Student::getSmajor(){
     return this->Smajor;
 }
 
-void Student::setSgrade(smallint grade){
+void Student::setSgrade(int grade){
     this->Sgrade = grade;
 }
 
-smallint Student::getSgrade(){
+int Student::getSgrade(){
     return this->Sgrade;
 }
 

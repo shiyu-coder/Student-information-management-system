@@ -19,8 +19,8 @@ public:
     QString getSdept();
     void setSmajor(QString major);
     QString getSmajor();
-    void setSgrade(smallint grade);
-    smallint getSgrade();
+    void setSgrade(int grade);
+    int getSgrade();
     void setSadmin(QString admin);
     QString getSadmin();
 private:
@@ -31,7 +31,7 @@ private:
     QString Spassw;
     QString Sdept;
     QString Smajor;
-    smallint Sgrade;
+    int Sgrade;
     QString Sadmin;
 };
 
