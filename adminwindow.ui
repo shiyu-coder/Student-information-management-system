@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1098</width>
+    <width>1315</width>
     <height>706</height>
    </rect>
   </property>
@@ -40,7 +40,7 @@ QTabBar::tab:selected{
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -57,6 +57,11 @@ QTabBar::tab:selected{
         <string>学生管理</string>
        </attribute>
       </widget>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>奖学金管理</string>
+       </attribute>
+      </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
         <string>待处理事项</string>
@@ -71,7 +76,7 @@ QTabBar::tab:selected{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1098</width>
+     <width>1315</width>
      <height>25</height>
     </rect>
    </property>

@@ -1,6 +1,16 @@
 #ifndef LESSON_H
 #define LESSON_H
 #include<QString>
+#include<QVector>
+/**
+ * @brief The Lesson_time struct
+ * 课程时间结构体
+ */
+struct Lesson_time{
+    QVector<int> weekDay;
+    QVector<int> begin;
+    QVector<int> end;
+};
 
 /**
  * @brief The Lesson class
@@ -59,6 +69,8 @@ private:
      * 详细信息（html）
      */
     QString info;
+
+
 
 public:
     Lesson();
