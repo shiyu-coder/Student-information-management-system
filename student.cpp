@@ -6,20 +6,8 @@ Student::Student()
     this->setSno();
 }
 
-void Student::setSno() // 以data类中的当前学生数目作为学号
-{
-    char charSno[9];
-    int key = data->stuNum;
-    char charKey[9];
-    itoa(key,charKey,10); // 数字转字符数组
-    int lengthOfKey = strlen(charKey);
-    for(int i = 0; i <= 7 - lengthOfKey; i++) // 在字符串前面填充0
-        charSno[i] = '0';
-    for(int i = 0; i <= lengthOfKey - 1; i++) // 在字符串后面填充学生数目
-        charSno[8-lengthOfKey+i]=charKey[i];
-    charSno[8] = '\0';
-    this->Sno = QString::fromLocal8Bit(charSno,512); //字符数组转化为QString
-    data->stuNum++;
+void Student::setSno(){
+
 }
 
 QString Student::getSno(){
