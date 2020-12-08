@@ -1,4 +1,4 @@
-#ifndef DATA_H
+﻿#ifndef DATA_H
 #define DATA_H
 
 #include <QObject>
@@ -51,5 +51,15 @@ private:
     Data();
 
 };
-
+/**
+ * @brief checkNum
+ * 用于查找给定字符串中含有多少个相同指定待查字符串（待查字符串为中文时很可能出现bug，比如“小李”和“小王”被认为是相同的字符串，这可能与编码格式有关，导致中文不能正确呈现）
+ * @param rawStr
+ * 源字符串
+ * @param toFind
+ * 待查字符串
+ * @return
+ * 源字符串中所含待查字符串的数量
+ */
+int checkNum(QString rawStr,QString toFind);
 #endif // DATA_H
