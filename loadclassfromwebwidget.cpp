@@ -98,7 +98,17 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
             QString temp;
             for(int i=1;i<=9;i++){
                 temp=match.captured(i);
-                qDebug()<<temp;
+                if(i==8){
+                    Data* data=Data::getData();
+                    QStringList list=data->getTeacherFromRawStr(temp);
+                    for(int i=0;i<list.size();i++) qDebug()<<list.at(i);
+                }else if(i==9){
+                    Data* data=Data::getData();
+                    Lesson_time lt=data->getLessonTimeFromRawStr(temp);
+                    for(int i=0;i<lt.weekDay.size();i++) qDebug()<<lt.weekDay.at(i)<<" "<<lt.begin.at(i)<<" "<<lt.end.at(i);
+                }else{
+                    qDebug()<<temp;
+                }
             }
             count++;
             index_beg = match.capturedEnd();        //记录目前匹配的位置

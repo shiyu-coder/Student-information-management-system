@@ -43,11 +43,13 @@ QString Data::getCurrentTime(){
 }
 
 QStringList Data::getTeacherFromRawStr(QString rawStr){
+    if(rawStr.size()<=0) return QStringList();
     QStringList teacherList= rawStr.split(",p");
     return teacherList;
 }
 
 Lesson_time Data::getLessonTimeFromRawStr(QString rawStr){
+    if(rawStr.size()<=0) return Lesson_time();
     Lesson_time lessonTime;
     int numOfWeekday = checkNum(rawStr,"<br/>")+1;
     QString workStr = rawStr;
