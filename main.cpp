@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 
 #include <QApplication>
 #include<QtDebug>
@@ -12,12 +12,15 @@
 #include<loginwidget.h>
 #include<QVector>
 #include<QString>
+#include<QDebug>
+#include<QTextCodec>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     LogInWidget *loginwidget=new LogInWidget();
     loginwidget->show();
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
     //Data *data=new Data();
     //QVector<QString> keys;
     //last

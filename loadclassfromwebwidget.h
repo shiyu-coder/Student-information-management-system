@@ -24,6 +24,7 @@
 #include<weblogwidget.h>
 #include<data.h>
 #include<Windows.h>
+#include<QTextCodec>
 
 namespace Ui {
 class LoadClassFromWebWidget;

@@ -8,6 +8,7 @@
 #include<cstdlib>
 #include<QStringList>
 #include<lesson.h>
+#include<QTextCodec>
 
 class Data
 {
