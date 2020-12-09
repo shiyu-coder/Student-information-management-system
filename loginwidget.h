@@ -17,7 +17,7 @@ public:
 
 private slots:
 
-    void on_ConfirmButton_clicked();
+    void on_toolButton_clicked();
 
 private:
     Ui::LogInWidget *ui;
