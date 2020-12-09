@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 
 #include <QApplication>
 #include<QtDebug>
@@ -10,20 +10,22 @@
 #include<QSqlError>
 #include<QString>
 #include<loginwidget.h>
-#include<data.h>
 #include<QVector>
 #include<QString>
+#include<QDebug>
+#include<QTextCodec>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     LogInWidget *loginwidget=new LogInWidget();
     loginwidget->show();
-    Data *data=new Data();
-    QVector<QString> keys;
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
+    //Data *data=new Data();
+    //QVector<QString> keys;
     //last
-    keys.push_back(QString("202015"));
-    data->getFundMsgFromApi(keys);
+    //keys.push_back(QString("202015"));
+    //data->getFundMsgFromApi(keys);
     return a.exec();
 }
 
@@ -38,7 +40,7 @@ int main(int argc, char *argv[])
     }else{
         qDebug()<<"successful!"<<endl;
         QSqlQuery query;
-        query.exec("create table test(id integer primary key, name nvarchar(20),age int)");
+        query.exec("create table %1(id integer primary key, name nvarchar(20),age int)").arg(test);
         query.exec("insert into test values(1,'小明',14)");
         //此行用于测试pull功能
         db.close();

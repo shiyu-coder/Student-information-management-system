@@ -1,6 +1,7 @@
 QT       += core gui
 QT       += sql
 QT       += network
+QT       +=webenginewidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,21 +19,42 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    adminwindow.cpp \
     data.cpp \
-    fund.cpp \
+    dataquery.cpp \
+    lesson.cpp \
+    loadclassfromwebwidget.cpp \
     loginwidget.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    student.cpp \
+    studentwindow.cpp \
+    teacher.cpp \
+    teacherwindow.cpp \
+    weblogwidget.cpp
 
 HEADERS += \
+    adminwindow.h \
     data.h \
-    fund.h \
+    dataquery.h \
+    lesson.h \
+    loadclassfromwebwidget.h \
     loginwidget.h \
-    mainwindow.h
+    mainwindow.h \
+    student.h \
+    studentwindow.h \
+    teacher.h \
+    teacherwindow.h \
+    weblogwidget.h
 
 FORMS += \
+    adminwindow.ui \
+    loadclassfromwebwidget.ui \
     loginwidget.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    studentwindow.ui \
+    teacherwindow.ui \
+    weblogwidget.ui
 
 TRANSLATIONS += \
     SIM_System_zh_CN.ts
@@ -41,3 +63,11 @@ TRANSLATIONS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    SIMS_res.qrc
+
+msvc {
+    QMAKE_CFLAGS += /utf-8
+    QMAKE_CXXFLAGS += /utf-8
+}

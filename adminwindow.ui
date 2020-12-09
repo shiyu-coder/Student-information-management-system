@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdminWindow</class>
+ <widget class="QMainWindow" name="AdminWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1315</width>
+    <height>706</height>
+   </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Potato Minus——管理员</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="SIMS_res.qrc">
+    <normaloff>:/SIM_System_Pics/resources/logo_3.png</normaloff>:/SIM_System_Pics/resources/logo_3.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>9</y>
+      <width>1051</width>
+      <height>651</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTabWidget::pane{
+	border:none;
+}
+QTabWidget::tab-bar{
+        alignment:left;
+}
+QTabBar::tab{
+	background:transparent;
+	color:black;
+	min-width:30ex;
+	min-height:10ex;
+}
+QTabBar::tab:hover{
+	background:rgb(255, 255, 255, 100);
+}
+QTabBar::tab:selected{
+	border-color: white;
+	background:white;
+	color:green;
+}</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="LessonTab">
+     <attribute name="title">
+      <string>课程管理</string>
+     </attribute>
+     <widget class="QTableWidget" name="LessonWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>1052</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>课程编号</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程名称</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程教师</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>新建列</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>最大学生人数</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程时间</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QWidget" name="widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>0</y>
+        <width>1051</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QToolButton" name="toolButton">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_6">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_5">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_4">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_3">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_2">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="TeacherTab">
+     <attribute name="title">
+      <string>教师管理</string>
+     </attribute>
+     <widget class="QWidget" name="widget_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1051</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QToolButton" name="toolButton_13">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_14">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_15">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_16">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_17">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_18">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QTableWidget" name="LessonWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>50</y>
+        <width>1051</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>新建列</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程名称</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程教师</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>新建列</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>最大学生人数</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程时间</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="StudentTab">
+     <attribute name="title">
+      <string>学生管理</string>
+     </attribute>
+     <widget class="QTableWidget" name="LessonWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>50</y>
+        <width>1052</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>新建列</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程名称</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程教师</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>新建列</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>最大学生人数</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程时间</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QWidget" name="widget_3" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1051</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QToolButton" name="toolButton_19">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_20">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_21">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_22">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_23">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_24">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="ScholarTab">
+     <attribute name="title">
+      <string>奖学金管理</string>
+     </attribute>
+     <widget class="QWidget" name="widget_4" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1051</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QToolButton" name="toolButton_25">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_26">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_27">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_28">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_29">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton_30">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QListWidget" name="ScholarshipWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>1052</width>
+        <height>521</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>待处理事项</string>
+     </attribute>
+     <widget class="QListWidget" name="ScholarshipWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1061</width>
+        <height>571</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>0</y>
+      <width>251</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/SIM_System_Pics/resources/logo3.jpg);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="MsgBoard">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>80</y>
+      <width>251</width>
+      <height>571</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1315</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>开始</string>
+    </property>
+    <addaction name="actionLoadClassFromWeb"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLoadClassFromWeb">
+   <property name="text">
+    <string>导入课程</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="SIMS_res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
