@@ -1,9 +1,10 @@
-#ifndef ADMINWINDOW_H
+﻿#ifndef ADMINWINDOW_H
 #define ADMINWINDOW_H
 
 #include <QMainWindow>
 #include<loadclassfromwebwidget.h>
 #include<weblogwidget.h>
+#include<connectdabasewidget.h>
 
 namespace Ui {
 class AdminWindow;
@@ -21,6 +22,8 @@ private slots:
     void on_actionLoadClassFromWeb_triggered();
 
     void closeEvent(QCloseEvent *event);
+
+    void on_actionInit_triggered();
 
 private:
     Ui::AdminWindow *ui;

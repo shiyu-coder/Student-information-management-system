@@ -1,4 +1,3 @@
-
 create table Systbl(
     adminNotice SMALLINT,/*0-no 1-yes，管理员一上线系统就对这个量进行检查，如果是1，说明有人向管理员提交申请待处理，提醒管理员处理表S2A & T2A中的内容*/
     stuNum SMALLINT,/*学生总人数*/

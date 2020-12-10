@@ -1,4 +1,4 @@
-#ifndef DATAQUERY_H
+﻿#ifndef DATAQUERY_H
 #define DATAQUERY_H
 
 #include <QObject>
@@ -9,6 +9,8 @@
 #include<QSqlQuery>
 #include<QVariant>
 #include<QSqlError>
+#include<QFile>
+#include<QTextStream>
 
 //关于三种登录身份的标识,type==ADMIN
 #define ADMIN 1
@@ -44,6 +46,17 @@ public:
      * 是否允许登录
      */
     bool canLogInSIMS(QString userName,QString password,int type);
+    /**
+     * @brief databaseOnline
+     * 目前是否已连接到数据库
+     */
+    bool databaseOnline;
+    /**
+     * @brief init
+     * 数据库初始化
+     * @return QStirng
+     */
+    QString init();
 private:
     /**
      * @brief db

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1315</width>
+    <width>1365</width>
     <height>706</height>
    </rect>
   </property>
@@ -68,6 +68,12 @@ QTabBar::tab:selected{
         <height>531</height>
        </rect>
       </property>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>116</number>
+      </attribute>
       <column>
        <property name="text">
         <string>课程编号</string>
@@ -85,17 +91,32 @@ QTabBar::tab:selected{
       </column>
       <column>
        <property name="text">
-        <string>新建列</string>
+        <string>课程最大人数</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>最大学生人数</string>
+        <string>当前选课人数</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>课程时间</string>
+        <string>开课院系</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>开课年级</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>开课学期</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>上课时间</string>
        </property>
       </column>
      </widget>
@@ -110,44 +131,46 @@ QTabBar::tab:selected{
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QToolButton" name="toolButton">
+        <widget class="QToolButton" name="ModifyLessonButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>修改课程信息</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton_6">
+        <widget class="QToolButton" name="FindLessonButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>删除课程</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton_5">
+        <widget class="QToolButton" name="AddLessonButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>新增课程</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton_4">
-         <property name="text">
-          <string>...</string>
+        <widget class="QToolButton" name="DeleteLessonButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButton_3">
          <property name="text">
-          <string>...</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButton_2">
-         <property name="text">
-          <string>...</string>
+          <string>查找课程</string>
          </property>
         </widget>
        </item>
@@ -169,44 +192,46 @@ QTabBar::tab:selected{
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QToolButton" name="toolButton_13">
+        <widget class="QToolButton" name="ModifyTeacherButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>修改教师信息</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton_14">
+        <widget class="QToolButton" name="AddLessonButton_2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>新增教师</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton_15">
+        <widget class="QToolButton" name="DeleteTeacherButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>删除教师</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton_16">
-         <property name="text">
-          <string>...</string>
+        <widget class="QToolButton" name="FindLessonButton_2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButton_17">
          <property name="text">
-          <string>...</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButton_18">
-         <property name="text">
-          <string>...</string>
+          <string>查找教师</string>
          </property>
         </widget>
        </item>
@@ -221,34 +246,27 @@ QTabBar::tab:selected{
         <height>531</height>
        </rect>
       </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>263</number>
+      </attribute>
       <column>
        <property name="text">
-        <string>新建列</string>
+        <string>教师编号</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>课程名称</string>
+        <string>教师名称</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>课程教师</string>
+        <string>教师职称</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>新建列</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>最大学生人数</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>课程时间</string>
+        <string>所在院系</string>
        </property>
       </column>
      </widget>
@@ -266,34 +284,32 @@ QTabBar::tab:selected{
         <height>531</height>
        </rect>
       </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>210</number>
+      </attribute>
       <column>
        <property name="text">
-        <string>新建列</string>
+        <string>学生学号</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>课程名称</string>
+        <string>学生姓名</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>课程教师</string>
+        <string>性别</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>新建列</string>
+        <string>所在院系</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>最大学生人数</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>课程时间</string>
+        <string>入学年级</string>
        </property>
       </column>
      </widget>
@@ -308,44 +324,46 @@ QTabBar::tab:selected{
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
-        <widget class="QToolButton" name="toolButton_19">
+        <widget class="QToolButton" name="ModifyStudentButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>修改学生信息</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton_20">
+        <widget class="QToolButton" name="AddStudentButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>新增学生</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton_21">
+        <widget class="QToolButton" name="DeleteStudentButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>删除学生</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolButton_22">
-         <property name="text">
-          <string>...</string>
+        <widget class="QToolButton" name="FindStudentButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButton_23">
          <property name="text">
-          <string>...</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButton_24">
-         <property name="text">
-          <string>...</string>
+          <string>查找学生</string>
          </property>
         </widget>
        </item>
@@ -368,43 +386,45 @@ QTabBar::tab:selected{
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
         <widget class="QToolButton" name="toolButton_25">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>修改奖学金信息</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QToolButton" name="toolButton_26">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>新增奖学金</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QToolButton" name="toolButton_27">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
          <property name="text">
-          <string>...</string>
+          <string>删除奖学金</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QToolButton" name="toolButton_28">
-         <property name="text">
-          <string>...</string>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButton_29">
          <property name="text">
-          <string>...</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButton_30">
-         <property name="text">
-          <string>...</string>
+          <string>查找奖学金</string>
          </property>
         </widget>
        </item>
@@ -418,6 +438,33 @@ QTabBar::tab:selected{
         <width>1052</width>
         <height>521</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>楷体</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="isWrapping" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
+      </property>
+      <property name="layoutMode">
+       <enum>QListView::SinglePass</enum>
+      </property>
+      <property name="gridSize">
+       <size>
+        <width>1000</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="viewMode">
+       <enum>QListView::ListMode</enum>
       </property>
      </widget>
     </widget>
@@ -434,6 +481,18 @@ QTabBar::tab:selected{
         <height>571</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>楷体</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="gridSize">
+       <size>
+        <width>1000</width>
+        <height>40</height>
+       </size>
+      </property>
      </widget>
     </widget>
    </widget>
@@ -442,8 +501,8 @@ QTabBar::tab:selected{
      <rect>
       <x>1060</x>
       <y>0</y>
-      <width>251</width>
-      <height>81</height>
+      <width>301</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -457,9 +516,9 @@ QTabBar::tab:selected{
     <property name="geometry">
      <rect>
       <x>1060</x>
-      <y>80</y>
-      <width>251</width>
-      <height>571</height>
+      <y>100</y>
+      <width>301</width>
+      <height>551</height>
      </rect>
     </property>
    </widget>
@@ -469,7 +528,7 @@ QTabBar::tab:selected{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1315</width>
+     <width>1365</width>
      <height>25</height>
     </rect>
    </property>
@@ -478,13 +537,31 @@ QTabBar::tab:selected{
      <string>开始</string>
     </property>
     <addaction name="actionLoadClassFromWeb"/>
+    <addaction name="actionDeptManagement"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>管理</string>
+    </property>
+    <addaction name="actionInit"/>
    </widget>
    <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionLoadClassFromWeb">
    <property name="text">
     <string>导入课程</string>
+   </property>
+  </action>
+  <action name="actionInit">
+   <property name="text">
+    <string>数据库初始化</string>
+   </property>
+  </action>
+  <action name="actionDeptManagement">
+   <property name="text">
+    <string>院系列表</string>
    </property>
   </action>
  </widget>

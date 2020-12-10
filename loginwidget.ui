@@ -122,7 +122,7 @@ pressed{background-color:rgb(85, 170, 255);border-style: inset; }</string>
      <string>登录名</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="KeuLineEdit">
+   <widget class="QLineEdit" name="KeyLineEdit">
     <property name="geometry">
      <rect>
       <x>590</x>

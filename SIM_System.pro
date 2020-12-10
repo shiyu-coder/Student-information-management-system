@@ -20,6 +20,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     adminwindow.cpp \
+    connectdabasewidget.cpp \
     data.cpp \
     dataquery.cpp \
     lesson.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
 
 HEADERS += \
     adminwindow.h \
+    connectdabasewidget.h \
     data.h \
     dataquery.h \
     lesson.h \
@@ -49,6 +51,7 @@ HEADERS += \
 
 FORMS += \
     adminwindow.ui \
+    connectdabasewidget.ui \
     loadclassfromwebwidget.ui \
     loginwidget.ui \
     mainwindow.ui \
