@@ -49,3 +49,9 @@ void AdminWindow::on_actionInit_triggered()
         QMessageBox::information(this,"数据库初始化",result);
     }
 }
+
+void AdminWindow::on_actionAbout_triggered()
+{
+    AboutWidget *aboutwidget=new AboutWidget();
+    aboutwidget->show();
+}

@@ -5,6 +5,7 @@
 #include<loadclassfromwebwidget.h>
 #include<weblogwidget.h>
 #include<connectdabasewidget.h>
+#include<aboutwidget.h>
 
 namespace Ui {
 class AdminWindow;
@@ -24,6 +25,8 @@ private slots:
     void closeEvent(QCloseEvent *event);
 
     void on_actionInit_triggered();
+
+    void on_actionAbout_triggered();
 
 private:
     Ui::AdminWindow *ui;

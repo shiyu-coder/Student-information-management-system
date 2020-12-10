@@ -36,7 +36,7 @@ bool DataQuery::canLogInSIMS(QString userName,QString password,int type){
 }
 
 QString DataQuery::init(){
-    QFile init_file("SqlCode/CreateTable.sql");
+    QFile init_file("SqlCode/CreateTable_New.sql");
     if(init_file.open(QIODevice::ReadOnly | QIODevice::Text)){
         QString sql=init_file.readAll().data();
         this->db.exec(sql);

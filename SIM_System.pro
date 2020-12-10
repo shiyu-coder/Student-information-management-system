@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    aboutwidget.cpp \
     adminwindow.cpp \
     connectdabasewidget.cpp \
     data.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
     weblogwidget.cpp
 
 HEADERS += \
+    aboutwidget.h \
     adminwindow.h \
     connectdabasewidget.h \
     data.h \
@@ -50,6 +52,7 @@ HEADERS += \
     weblogwidget.h
 
 FORMS += \
+    aboutwidget.ui \
     adminwindow.ui \
     connectdabasewidget.ui \
     loadclassfromwebwidget.ui \
