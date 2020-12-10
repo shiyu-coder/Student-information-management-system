@@ -1,7 +1,11 @@
-#ifndef LOGINWIDGET_H
+﻿#ifndef LOGINWIDGET_H
 #define LOGINWIDGET_H
 
 #include <QWidget>
+#include<QMessageBox>
+#include<adminwindow.h>
+#include<studentwindow.h>
+#include<teacherwindow.h>
 
 namespace Ui {
 class LogInWidget;
