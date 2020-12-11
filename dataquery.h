@@ -57,6 +57,16 @@ public:
      * @return QStirng
      */
     QString init();
+    /**
+     * @brief insertLesson
+     * 插入学生信息
+     */
+    QString insertLesson(QString cno,QString cname,QString cchar,QString cdept,QString ccredit,QString cgrade);
+    /**
+     * @brief insertDept
+     * 插入院系信息
+     */
+    QString insertDept(QString dname,QString dintro);
 private:
     /**
      * @brief db

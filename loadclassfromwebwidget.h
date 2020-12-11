@@ -25,6 +25,7 @@
 #include<data.h>
 #include<Windows.h>
 #include<QTextCodec>
+#include<dataquery.h>
 
 namespace Ui {
 class LoadClassFromWebWidget;
@@ -59,9 +60,11 @@ private:
     //获取的课程信息(html)
     QString ori_lesson;
     //网络请求
-    QNetworkRequest request;
+    QNetworkRequest *request;
     //暂存的课程信息（QString)
     QStringList lessonList;
+    //开课年级
+    QString cgrade;
 };
 
 #endif // LOADCLASSFROMWEBWIDGET_H

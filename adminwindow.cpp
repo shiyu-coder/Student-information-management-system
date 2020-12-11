@@ -13,7 +13,7 @@ AdminWindow::AdminWindow(QWidget *parent) :
     DataQuery *query=DataQuery::getDataQuery();
     QString result=query->connectToDatabase("sa","9638527410.s");
     if(result==""){
-        QMessageBox::information(this,"连接到数据库","数据库连接成功！");
+        //QMessageBox::information(this,"连接到数据库","数据库连接成功！");
     }else{
         QMessageBox::warning(this,"连接到数据库",result);
     }
