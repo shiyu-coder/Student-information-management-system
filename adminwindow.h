@@ -6,6 +6,7 @@
 #include<weblogwidget.h>
 #include<connectdabasewidget.h>
 #include<aboutwidget.h>
+#include<deptwidget.h>
 
 namespace Ui {
 class AdminWindow;
@@ -27,6 +28,8 @@ private slots:
     void on_actionInit_triggered();
 
     void on_actionAbout_triggered();
+
+    void on_actionDeptManagement_triggered();
 
 private:
     Ui::AdminWindow *ui;

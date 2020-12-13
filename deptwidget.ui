@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DeptWidget</class>
+ <widget class="QWidget" name="DeptWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>院系信息</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="SIMS_res.qrc">
+    <normaloff>:/SIM_System_Pics/resources/icon_login_2.png</normaloff>:/SIM_System_Pics/resources/icon_login_2.png</iconset>
+  </property>
+  <widget class="QTableWidget" name="DeptMsgWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>881</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAsNeeded</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="horizontalScrollMode">
+    <enum>QAbstractItemView::ScrollPerPixel</enum>
+   </property>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>438</number>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>院系姓名</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>院系信息</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QToolButton" name="ModifyDeptInfoButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+   </property>
+   <property name="text">
+    <string>修改院系信息</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>20</y>
+     <width>47</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+   </property>
+   <property name="text">
+    <string>刷新</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="SIMS_res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

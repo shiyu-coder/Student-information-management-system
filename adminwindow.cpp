@@ -55,3 +55,9 @@ void AdminWindow::on_actionAbout_triggered()
     AboutWidget *aboutwidget=new AboutWidget();
     aboutwidget->show();
 }
+
+void AdminWindow::on_actionDeptManagement_triggered()
+{
+    DeptWidget *deptwdiget=new DeptWidget();
+    deptwdiget->show();
+}

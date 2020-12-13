@@ -67,12 +67,22 @@ public:
      * 插入院系信息
      */
     QString insertDept(QString dname,QString dintro);
+    /**
+     * @brief selectDept
+     * 查询院系表信息
+     * @param qualificated
+     * 是否有限定条件
+     * @param qualificaion
+     * 限定条件
+     */
+    //QString selectDept(bool qualificated,QString qualificaion);
 private:
     /**
      * @brief db
      * 数据库实例
      */
     QSqlDatabase db;
+
     DataQuery();
     ~DataQuery();
 };

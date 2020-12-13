@@ -24,11 +24,13 @@ SOURCES += \
     connectdabasewidget.cpp \
     data.cpp \
     dataquery.cpp \
+    deptwidget.cpp \
     lesson.cpp \
     loadclassfromwebwidget.cpp \
     loginwidget.cpp \
     main.cpp \
     mainwindow.cpp \
+    modifydeptmsgwidget.cpp \
     student.cpp \
     studentwindow.cpp \
     teacher.cpp \
@@ -41,10 +43,12 @@ HEADERS += \
     connectdabasewidget.h \
     data.h \
     dataquery.h \
+    deptwidget.h \
     lesson.h \
     loadclassfromwebwidget.h \
     loginwidget.h \
     mainwindow.h \
+    modifydeptmsgwidget.h \
     student.h \
     studentwindow.h \
     teacher.h \
@@ -55,9 +59,11 @@ FORMS += \
     aboutwidget.ui \
     adminwindow.ui \
     connectdabasewidget.ui \
+    deptwidget.ui \
     loadclassfromwebwidget.ui \
     loginwidget.ui \
     mainwindow.ui \
+    modifydeptmsgwidget.ui \
     studentwindow.ui \
     teacherwindow.ui \
     weblogwidget.ui
