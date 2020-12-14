@@ -161,19 +161,24 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
                     //插入教师表
                     query.exec("select tno from Teacher where Tname='"+teacher.at(i)+"' and Tdept='"+courseBasicInsertParam.at(3)+"'");
                     if(query.lastError().type()==QSqlError::NoError){
-                        if(query.next()){
-                            //插入教师教课表
-                            QString newTno=query.value(0).toString();
-                            query.exec("insert into Tcourse values('"+courseBasicInsertParam.at(0)+"','"+newTno+"',"+cterm+")");
-                            if(query.lastError().type()!=QSqlError::NoError) qDebug()<<query.lastError().text();
+                        QString newTno=tno;
+                        if(query.next()){ 
+                            newTno=query.value(0).toString();
                             continue;//如果这个老师已经存在，就continue
                         }else{
                             query.exec("insert into Teacher values('"+tno+"','"+teacher.at(i)+"','"+courseBasicInsertParam.at(3)+"')");
                             if(query.lastError().type()!=QSqlError::NoError) qDebug()<<query.lastError().text();
-                            //插入教师教课表
-                            query.exec("insert into Tcourse values('"+courseBasicInsertParam.at(0)+"','"+tno+"',"+cterm+")");
-                            if(query.lastError().type()!=QSqlError::NoError) qDebug()<<query.lastError().text();
                         }
+                        //插入教师教课表
+                        query.exec("select * from Tcourse where Cno='"+courseBasicInsertParam.at(0)+"' and Tno='"+newTno+"' and Cterm="+cterm);
+                        if(query.lastError().type()==QSqlError::NoError){
+                            query.exec("insert into Tcourse values('"+courseBasicInsertParam.at(0)+"','"+newTno+"',"+cterm+")");
+                            if(query.lastError().type()!=QSqlError::NoError) qDebug()<<query.lastError().text();
+                        }else{
+                            QMessageBox::warning(this,"错误",query.lastError().text());
+                            return;
+                        }
+
                     }else{
                         QMessageBox::warning(this,"错误",query.lastError().text());
                         return;
