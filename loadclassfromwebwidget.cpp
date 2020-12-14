@@ -34,6 +34,7 @@ void LoadClassFromWebWidget::on_getLessonButton_clicked()
         year--;
     }
     cgrade=QString::number(year-inputYearIndex);
+    cterm=QString::number(inputSemesterIndex+1);
     qDebug()<<"cgrade:::"<<cgrade;
     //确定网址
     leUrl="http://elite.nju.edu.cn/jiaowu/student/teachinginfo/allCourseList.do?method=getCourseList&curTerm="
@@ -99,20 +100,23 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
     QRegularExpression re("<!--p<tdpalign=\"center\"pvalign=\"middle\">(.*?)</td>p-->.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>.*?le\">(.*?)</td>");
     QRegularExpressionMatch match;
     int count=0;
-    DataQuery *query=DataQuery::getDataQuery();
+    DataQuery *iquery=DataQuery::getDataQuery();
     QString result;
     while(index_beg<index_end){
         match = re.match(ori_lesson,index_beg);
         if(match.hasMatch()){
             QString temp;
-
+            QStringList teacher;
             QStringList courseBasicInsertParam;
+            Lesson_time lt;
             for(int i=1;i<=9;i++){
                 temp=match.captured(i);
                 if(i==8){
-
+                    Data *data=Data::getData();
+                    teacher=data->getTeacherFromRawStr(temp);
                 }else if(i==9){
-
+                    Data *data=Data::getData();
+                    lt=data->getLessonTimeFromRawStr(temp);
                 }else if(i==5){
                     if(temp.size()>0){
                         courseBasicInsertParam.push_back(temp.at(0));
@@ -128,12 +132,72 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
                 }
             }
             //插入院系
-            result=query->insertDept(courseBasicInsertParam.at(3),"");
+            result=iquery->insertDept(courseBasicInsertParam.at(3),"");
             qDebug()<<result;
             //插入课程表
-            result=query->insertLesson(courseBasicInsertParam.at(0),courseBasicInsertParam.at(1),courseBasicInsertParam.at(2),courseBasicInsertParam.at(3),courseBasicInsertParam.at(4),this->cgrade);
+            result=iquery->insertLesson(courseBasicInsertParam.at(0),courseBasicInsertParam.at(1),courseBasicInsertParam.at(2),courseBasicInsertParam.at(3),courseBasicInsertParam.at(4),this->cgrade);
             if(result=="") count++;
             qDebug()<<result;
+            //插入教师
+            for(int i=0;i<teacher.size();i++){
+                QSqlQuery query;
+                query.exec("select COUNT(tno) from Teacher");
+                if(query.lastError().type()==QSqlError::NoError){
+                    int teaNum=0;
+                    if(query.next()){
+                        teaNum=query.value(0).toInt();
+                    }
+                    qDebug()<<"------"<<teaNum;
+                    //构建教师编号
+                    QString tno=QString::number(teaNum);
+                    if(tno.size()<4){
+                        QString zero;
+                        for(int j=0;j<4-tno.size();j++){
+                            zero+="0";
+                        }
+                        tno=zero+tno;
+                    }
+
+                    //插入教师表
+                    query.exec("select tno from Teacher where Tname='"+teacher.at(i)+"' and Tdept='"+courseBasicInsertParam.at(3)+"'");
+                    if(query.lastError().type()==QSqlError::NoError){
+                        if(query.next()){
+                            //插入教师教课表
+                            QString newTno=query.value(0).toString();
+                            query.exec("insert into Tcourse values('"+courseBasicInsertParam.at(0)+"','"+newTno+"',"+cterm+")");
+                            if(query.lastError().type()!=QSqlError::NoError) qDebug()<<query.lastError().text();
+                            continue;//如果这个老师已经存在，就continue
+                        }else{
+                            query.exec("insert into Teacher values('"+tno+"','"+teacher.at(i)+"','"+courseBasicInsertParam.at(3)+"')");
+                            if(query.lastError().type()!=QSqlError::NoError) qDebug()<<query.lastError().text();
+                            //插入教师教课表
+                            query.exec("insert into Tcourse values('"+courseBasicInsertParam.at(0)+"','"+tno+"',"+cterm+")");
+                            if(query.lastError().type()!=QSqlError::NoError) qDebug()<<query.lastError().text();
+                        }
+                    }else{
+                        QMessageBox::warning(this,"错误",query.lastError().text());
+                        return;
+                    }
+
+                }else{
+                    QMessageBox::warning(this,"错误",query.lastError().text());
+                    return;
+                }
+            }
+            //插入课程时间
+            QSqlQuery query;
+            query.exec("select * from CTime where Cno='"+courseBasicInsertParam.at(0)+"'");
+            if(query.lastError().type()==QSqlError::NoError){
+                if(!query.next()){
+                    for(int i=0;i<lt.weekDay.size();i++){
+                        query.exec("insert into CTime values('"+courseBasicInsertParam.at(0)+"',"+cterm+","+QString::number(lt.weekDay.at(i))+","+QString::number(lt.begin.at(i))+","+QString::number(lt.end.at(i))+")");
+                        if(query.lastError().type()!=QSqlError::NoError) qDebug()<<query.lastError().text();
+                    }
+                }
+            }else{
+                QMessageBox::warning(this,"错误",query.lastError().text());
+                return;
+            }
 //            for(int i=1;i<=9;i++){
 //                temp=match.captured(i);
 //                if(i==8){

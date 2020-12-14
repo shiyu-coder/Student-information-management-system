@@ -65,6 +65,8 @@ private:
     QStringList lessonList;
     //开课年级
     QString cgrade;
+    //开课学习
+    QString cterm;
 };
 
 #endif // LOADCLASSFROMWEBWIDGET_H

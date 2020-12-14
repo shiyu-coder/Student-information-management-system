@@ -61,3 +61,15 @@ void AdminWindow::on_actionDeptManagement_triggered()
     DeptWidget *deptwdiget=new DeptWidget();
     deptwdiget->show();
 }
+
+void AdminWindow::on_actionDatabaseRenew_triggered()
+{
+    QSqlQuery query;
+    query.exec("drop table S2A;drop table T2A;drop table Systbl;drop table ScholarAppli;drop table ScholarLst;drop table ProjectAppli;drop table ProjectLst;drop table CTime;drop table Tcourse;drop table Teacher;drop table Stu_Cour;drop table CourseBasic;drop table Student;drop table Dept");
+    if(query.lastError().type()==QSqlError::NoError){
+        QMessageBox::information(this,"数据库重置","数据库重置成功！");
+    }else{
+        QMessageBox::warning(this,"错误",query.lastError().text());
+    }
+
+}

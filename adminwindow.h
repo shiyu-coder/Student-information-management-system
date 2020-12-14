@@ -7,6 +7,7 @@
 #include<connectdabasewidget.h>
 #include<aboutwidget.h>
 #include<deptwidget.h>
+#include<QSqlQuery>
 
 namespace Ui {
 class AdminWindow;
@@ -30,6 +31,8 @@ private slots:
     void on_actionAbout_triggered();
 
     void on_actionDeptManagement_triggered();
+
+    void on_actionDatabaseRenew_triggered();
 
 private:
     Ui::AdminWindow *ui;

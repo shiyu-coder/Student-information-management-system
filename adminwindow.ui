@@ -544,6 +544,7 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
      <string>管理</string>
     </property>
     <addaction name="actionInit"/>
+    <addaction name="actionDatabaseRenew"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="title">
@@ -580,6 +581,11 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
   <action name="actionHelp">
    <property name="text">
     <string>说明文档</string>
+   </property>
+  </action>
+  <action name="actionDatabaseRenew">
+   <property name="text">
+    <string>重置数据库</string>
    </property>
   </action>
  </widget>
