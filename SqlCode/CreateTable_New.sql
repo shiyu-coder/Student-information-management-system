@@ -31,11 +31,11 @@ create table Teacher(
 */
 create table CourseBasic(
     Cno varchar(9)PRIMARY KEY,
-    Cname varchar(30),
+    Cname varchar(50),
     Climit SMALLINT,/*选课人数上限*/
     Ccur SMALLINT,/*当前选课人数，每选课成功一个人，就要用Trigger更新*/
-    Cchar varchar(10),/*选课性质*/
-    Cdept varchar(30),
+    Cchar varchar(30),/*选课性质*/
+    Cdept varchar(50),
     Ccredit SMALLINT,
     Cgrade char(4),/*开课年级*/
     FOREIGN KEY(Cdept) REFERENCES Dept(Dname) ,

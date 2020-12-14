@@ -34,6 +34,8 @@ private slots:
 
     void on_actionDatabaseRenew_triggered();
 
+    void on_FlushButton_clicked();
+
 private:
     Ui::AdminWindow *ui;
 };
