@@ -72,6 +72,8 @@ void LoadClassFromWebWidget::ReplyFinished(QNetworkReply *reply){
     //获取接收到的信息
     Data* data=Data::getData();
     qDebug()<<"gotHtml";
+    ui->spiderMsg->append(data->getCurrentTime()+"Request successful!");
+    ui->spiderMsg->append(data->getCurrentTime()+"Processing response information...");
     ori_lesson=reply->readAll();
     ori_lesson.replace('\n','p');
     ori_lesson.replace(' ','p');
@@ -91,6 +93,8 @@ void LoadClassFromWebWidget::ReplyFinished(QNetworkReply *reply){
 
 void LoadClassFromWebWidget::getLessonMsgFromHtml(){
     qDebug()<<"Begin regular";
+    Data* data=Data::getData();
+    ui->spiderMsg->append(data->getCurrentTime()+"Extract relevant information...");
     //确定正则表达式
     QRegExp re_beg(tr("课程信息"));
     QRegExp re_end(tr("</table>"));
@@ -102,6 +106,7 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
     int count=0;
     DataQuery *iquery=DataQuery::getDataQuery();
     QString result;
+    ui->spiderMsg->append(data->getCurrentTime()+"Import information into database...");
     while(index_beg<index_end){
         match = re.match(ori_lesson,index_beg);
         if(match.hasMatch()){
@@ -112,10 +117,10 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
             for(int i=1;i<=9;i++){
                 temp=match.captured(i);
                 if(i==8){
-                    Data *data=Data::getData();
+
                     teacher=data->getTeacherFromRawStr(temp);
                 }else if(i==9){
-                    Data *data=Data::getData();
+
                     lt=data->getLessonTimeFromRawStr(temp);
                 }else if(i==5){
                     if(temp.size()>0){
@@ -225,6 +230,5 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
         }
     }
     qDebug()<<"Regular done "<<count;
-    Data *data=Data::getData();
     ui->spiderMsg->append(data->getCurrentTime()+"Successfully imported "+QString::number(count)+" courses");
 }

@@ -58,3 +58,9 @@ void DeptWidget::on_toolButton_clicked()
         QMessageBox::warning(this,"错误",query.lastError().text());
     }
 }
+
+void DeptWidget::on_AddDeptButton_clicked()
+{
+    AddDeptWidget *widget=new AddDeptWidget();
+    widget->show();
+}

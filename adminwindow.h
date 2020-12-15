@@ -8,6 +8,7 @@
 #include<aboutwidget.h>
 #include<deptwidget.h>
 #include<QSqlQuery>
+#include<addstuwidget.h>
 
 namespace Ui {
 class AdminWindow;
@@ -35,6 +36,12 @@ private slots:
     void on_actionDatabaseRenew_triggered();
 
     void on_FlushButton_clicked();
+
+    void on_FlushButton_2_clicked();
+
+    void on_AddStudentButton_clicked();
+
+    void on_FlushButton_3_clicked();
 
 private:
     Ui::AdminWindow *ui;

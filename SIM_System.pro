@@ -20,6 +20,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     aboutwidget.cpp \
+    adddeptwidget.cpp \
+    addstuwidget.cpp \
     adminwindow.cpp \
     connectdabasewidget.cpp \
     data.cpp \
@@ -39,6 +41,8 @@ SOURCES += \
 
 HEADERS += \
     aboutwidget.h \
+    adddeptwidget.h \
+    addstuwidget.h \
     adminwindow.h \
     connectdabasewidget.h \
     data.h \
@@ -57,6 +61,8 @@ HEADERS += \
 
 FORMS += \
     aboutwidget.ui \
+    adddeptwidget.ui \
+    addstuwidget.ui \
     adminwindow.ui \
     connectdabasewidget.ui \
     deptwidget.ui \

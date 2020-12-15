@@ -3,24 +3,24 @@ create table Systbl(
 )
 
 create table Dept(
-    Dname varchar(30) PRIMARY KEY,
+    Dname varchar(50) PRIMARY KEY,
     Dintro varchar(200),/*introduction*/
 )
 
 
 create table Student(
-    Sno varchar(4) PRIMARY KEY,/*学号，每位都是数字字符*/
+    Sno varchar(10) PRIMARY KEY,/*学号，每位都是数字字符*/
     Sname varchar(10),
-    Ssex char(2) CHECK(Ssex IN('男','女')),/*约束：男or女*/
-    Sdept varchar(30),/**/ 
-    Sgrade char(4) CHECK(Sgrade IN ('2017', '2018','2019','2020')),/*入学年级*/
+    Ssex char(2),/*约束：男or女*/
+    Sdept varchar(50),/**/ 
+    Sgrade char(4),/*入学年级*/
     FOREIGN KEY(Sdept) REFERENCES Dept(Dname),
 )
 
 create table Teacher(
     Tno varchar(4) PRIMARY KEY,/*工号，每位都是数字字符*/
     Tname varchar(10),
-    Tdept varchar(30),
+    Tdept varchar(50),
     FOREIGN KEY(Tdept) REFERENCES Dept(Dname),
 )
 
@@ -65,7 +65,7 @@ create table Tcourse(/*教师教课表*/
 )
 
 create table Stu_Cour(
-    Sno varchar(4),
+    Sno varchar(10),
     Cno varchar(9), 
     Cterm SMALLINT, /*限制1，2*/
     Grade SMALLINT,
@@ -85,7 +85,7 @@ create table T2A(
 )
 
 create table S2A(
-    Sno varchar(4) NOT NULL,/*申请学生学号*/
+    Sno varchar(10) NOT NULL,/*申请学生学号*/
     Rcontent varchar(200) NOT NULL,/*申请内容：请假，退课，修改课程人数上限之类的*/
     Response varchar(50),/*Admin反馈*/
     FOREIGN KEY(Sno) REFERENCES Student(Sno)  ON DELETE CASCADE,
@@ -109,7 +109,7 @@ create table ProjectLst(
 
 一旦有人申请，就提醒老师*/
 create table ProjectAppli(
-    Sno varchar(4), 
+    Sno varchar(10), 
     ProjectName varchar(40),
     Reason varchar(400),
     Response varchar(6),/*通过或者不通过*/
@@ -135,7 +135,7 @@ create table ScholarLst(
 一个学生可以申请一个高额，若干低额
 先从高额开始评奖，一个学生获得高额奖学金之后，他的其他申请状态变成不可兼得*/
 create table ScholarAppli(
-    Sno varchar(4),
+    Sno varchar(10),
     Scholarship varchar(20),
     Reason varchar(200),
     Response char(1) CHECK(Response IN ('0','1','2')),/*1-通过, 0-不通过, 2-不可兼得*/

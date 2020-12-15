@@ -10,6 +10,7 @@
 #include<QDebug>
 #include<modifydeptmsgwidget.h>
 #include<QList>
+#include<adddeptwidget.h>
 
 namespace Ui {
 class DeptWidget;
@@ -27,6 +28,8 @@ private slots:
     void on_ModifyDeptInfoButton_clicked();
 
     void on_toolButton_clicked();
+
+    void on_AddDeptButton_clicked();
 
 private:
     Ui::DeptWidget *ui;

@@ -18,6 +18,8 @@ AdminWindow::AdminWindow(QWidget *parent) :
         QMessageBox::warning(this,"连接到数据库",result);
     }
     on_FlushButton_clicked();
+    on_FlushButton_2_clicked();
+    on_FlushButton_3_clicked();
 }
 
 AdminWindow::~AdminWindow()
@@ -173,5 +175,49 @@ void AdminWindow::on_FlushButton_clicked()
         }
     }else{
         QMessageBox::warning(this,"查询全校课程错误",query.lastError().text());
+    }
+}
+
+void AdminWindow::on_FlushButton_2_clicked()
+{
+    ui->TeacherWidget->clearContents();
+    ui->TeacherWidget->setRowCount(0);
+    QSqlQuery query;
+    query.exec("select * from Teacher");
+    if(query.lastError().type()==QSqlError::NoError){
+        while(query.next()){
+            ui->TeacherWidget->setRowCount(ui->TeacherWidget->rowCount()+1);
+            ui->TeacherWidget->setItem(ui->TeacherWidget->rowCount()-1,0,new QTableWidgetItem(query.value(0).toString()));
+            ui->TeacherWidget->setItem(ui->TeacherWidget->rowCount()-1,1,new QTableWidgetItem(query.value(1).toString()));
+            ui->TeacherWidget->setItem(ui->TeacherWidget->rowCount()-1,2,new QTableWidgetItem(query.value(2).toString()));
+        }
+    }else{
+        QMessageBox::warning(this,"查询教师信息错误",query.lastError().text());
+    }
+}
+
+void AdminWindow::on_AddStudentButton_clicked()
+{
+    AddStuWidget* addstuwidget=new AddStuWidget();
+    addstuwidget->show();
+}
+
+void AdminWindow::on_FlushButton_3_clicked()
+{
+    ui->StudentWidget->clearContents();
+    ui->StudentWidget->setRowCount(0);
+    QSqlQuery query;
+    query.exec("select * from Student");
+    if(query.lastError().type()==QSqlError::NoError){
+        while(query.next()){
+            ui->StudentWidget->setRowCount(ui->StudentWidget->rowCount()+1);
+            ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,0,new QTableWidgetItem(query.value(0).toString()));
+            ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,1,new QTableWidgetItem(query.value(1).toString()));
+            ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,2,new QTableWidgetItem(query.value(2).toString()));
+            ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,3,new QTableWidgetItem(query.value(3).toString()));
+            ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,4,new QTableWidgetItem(query.value(4).toString()));
+        }
+    }else{
+        QMessageBox::warning(this,"查询学生信息错误",query.lastError().text());
     }
 }

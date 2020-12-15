@@ -213,6 +213,17 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
+        <widget class="QToolButton" name="FlushButton_2">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
+         <property name="text">
+          <string>刷新</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QToolButton" name="ModifyTeacherButton">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
@@ -268,7 +279,7 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
        </rect>
       </property>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>263</number>
+       <number>410</number>
       </attribute>
       <column>
        <property name="text">
@@ -278,11 +289,6 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
       <column>
        <property name="text">
         <string>教师名称</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>教师职称</string>
        </property>
       </column>
       <column>
@@ -306,7 +312,7 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
        </rect>
       </property>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>210</number>
+       <number>243</number>
       </attribute>
       <column>
        <property name="text">
@@ -344,6 +350,17 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QToolButton" name="FlushButton_3">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
+         <property name="text">
+          <string>刷新</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QToolButton" name="ModifyStudentButton">
          <property name="styleSheet">

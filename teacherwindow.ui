@@ -1,24 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>TeacherWindow</class>
- <widget name="TeacherWindow" class="QMainWindow">
+ <widget class="QMainWindow" name="TeacherWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1532</width>
+    <height>706</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Potato Minus——教师</string>
   </property>
-  <widget name="menubar" class="QMenuBar"/>
-  <widget name="centralwidget" class="QWidget"/>
-  <widget name="statusbar" class="QStatusBar"/>
+  <property name="windowIcon">
+   <iconset resource="SIMS_res.qrc">
+    <normaloff>:/SIM_System_Pics/resources/icon_login_2.png</normaloff>:/SIM_System_Pics/resources/icon_login_2.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>1221</x>
+      <y>-9</y>
+      <width>301</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/SIM_System_Pics/resources/logo3.jpg);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="MsgBoard">
+    <property name="geometry">
+     <rect>
+      <x>1221</x>
+      <y>91</y>
+      <width>301</width>
+      <height>551</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1221</width>
+      <height>651</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTabWidget::pane{
+	border:none;
+}
+QTabWidget::tab-bar{
+        alignment:left;
+}
+QTabBar::tab{
+	background:transparent;
+	color:black;
+	min-width:30ex;
+	min-height:10ex;
+}
+QTabBar::tab:hover{
+	background:rgb(255, 255, 255, 100);
+}
+QTabBar::tab:selected{
+	border-color: white;
+	background:white;
+	color:green;
+}</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="LessonTab">
+     <attribute name="title">
+      <string>我的课程</string>
+     </attribute>
+     <widget class="QTableWidget" name="LessonWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>1221</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <attribute name="horizontalHeaderCascadingSectionResizes">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>111</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>课程编号</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程名称</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程类型</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程教师</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程最大人数</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>当前选课人数</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>开课院系</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>学分</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>开课年级</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>开课学期</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>上课时间</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QWidget" name="widget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>-1</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QToolButton" name="FlushButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
+         <property name="text">
+          <string>刷新</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="ApplyModifyLessonButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
+         <property name="text">
+          <string>申请修改课程信息</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="StudentTab">
+     <attribute name="title">
+      <string>学生管理</string>
+     </attribute>
+     <widget class="QTableWidget" name="StudentWidget">
+      <property name="geometry">
+       <rect>
+        <x>1</x>
+        <y>50</y>
+        <width>1221</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>243</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>学生学号</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>学生姓名</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>性别</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>所在院系</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>入学年级</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QWidget" name="widget_3" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QToolButton" name="FlushButton_3">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
+         <property name="text">
+          <string>刷新</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QComboBox" name="StudentDeptBox"/>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="ScholarTab">
+     <attribute name="title">
+      <string>奖学金管理</string>
+     </attribute>
+     <widget class="QWidget" name="widget_4" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QToolButton" name="toolButton_28">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
+         <property name="text">
+          <string>查找奖学金</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QListWidget" name="ScholarshipWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>50</y>
+        <width>1221</width>
+        <height>521</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>楷体</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="isWrapping" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
+      </property>
+      <property name="layoutMode">
+       <enum>QListView::SinglePass</enum>
+      </property>
+      <property name="gridSize">
+       <size>
+        <width>1000</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="viewMode">
+       <enum>QListView::ListMode</enum>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>待处理事项</string>
+     </attribute>
+     <widget class="QListWidget" name="ScholarshipWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>571</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>楷体</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="gridSize">
+       <size>
+        <width>1000</width>
+        <height>40</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1532</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <pixmapfunction/>
+ <resources>
+  <include location="SIMS_res.qrc"/>
+ </resources>
  <connections/>
 </ui>

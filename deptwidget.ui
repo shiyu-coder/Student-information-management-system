@@ -52,7 +52,7 @@
    </attribute>
    <column>
     <property name="text">
-     <string>院系姓名</string>
+     <string>院系标识</string>
     </property>
    </column>
    <column>
@@ -81,7 +81,7 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
   <widget class="QToolButton" name="toolButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>250</x>
      <y>20</y>
      <width>47</width>
      <height>22</height>
@@ -93,6 +93,23 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
    </property>
    <property name="text">
     <string>刷新</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="AddDeptButton">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>20</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+   </property>
+   <property name="text">
+    <string>新增院系</string>
    </property>
   </widget>
  </widget>
