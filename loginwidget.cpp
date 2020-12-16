@@ -8,6 +8,7 @@ LogInWidget::LogInWidget(QWidget *parent) :
     ui(new Ui::LogInWidget)
 {
     ui->setupUi(this);
+    currentValue=0;
 }
 
 LogInWidget::~LogInWidget()
@@ -25,7 +26,23 @@ void LogInWidget::on_toolButton_clicked()
 
     if(input_type==0){
         if(input_userName=="admin" && input_key=="123"){
-            AdminWindow *adminWindow=new AdminWindow();
+            pd=new QProgressDialog(this);
+            pd->setRange(0,10001);
+            pd->setWindowModality(Qt::WindowModal);
+            pd->setModal(true);
+            pd->setMinimumDuration(5);
+            pd->setWindowTitle("请稍后...");
+            pd->setFixedWidth(400);
+            pd->setValue(0);
+            pd->show();
+            for(int i=0;i<100;i++){
+                for(int j=0;j<100;j++){
+                    updateProgressDialog();
+                }
+            }
+
+            AdminWindow *adminWindow;
+            adminWindow=new AdminWindow();
             adminWindow->show();
             this->close();
         }else{
@@ -49,4 +66,12 @@ void LogInWidget::on_toolButton_clicked()
         }
     }
 
+}
+
+void LogInWidget::updateProgressDialog(){
+    currentValue++;
+    pd->setValue(currentValue);
+    QCoreApplication::processEvents();//避免界面冻结
+    if(pd->wasCanceled())
+        pd->setHidden(true);//隐藏对话框
 }

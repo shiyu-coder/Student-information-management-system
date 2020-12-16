@@ -9,6 +9,9 @@
 #include<deptwidget.h>
 #include<QSqlQuery>
 #include<addstuwidget.h>
+#include<QTimer>
+#include<QProgressDialog>
+#include<addteacherwidget.h>
 
 namespace Ui {
 class AdminWindow;
@@ -43,8 +46,16 @@ private slots:
 
     void on_FlushButton_3_clicked();
 
+    void updateProgressDialog();
+
+    void on_AddLessonButton_2_clicked();
+
 private:
     Ui::AdminWindow *ui;
+
+    QTimer *timer;
+    int currentValue;
+    QProgressDialog *pd;
 };
 
 #endif // ADMINWINDOW_H

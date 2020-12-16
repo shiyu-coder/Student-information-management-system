@@ -7,6 +7,18 @@ AdminWindow::AdminWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     QApplication::setQuitOnLastWindowClosed(true);
+
+//    pd=new QProgressDialog("初始化...","取消",0,100,this);
+//    pd->setWindowModality(Qt::WindowModal);
+//    pd->setMinimumDuration(5);
+//    pd->setWindowTitle("请稍后");
+//    pd->setFixedWidth(300);
+//    pd->setValue(currentValue);
+//    pd->show();
+//    timer=new QTimer(this);
+//    connect(timer,SIGNAL(timeout()),this,SLOT(updateProgressDialog()));
+//    timer->start(100);
+
     //Data* data=Data::getData();
     //ui->MsgBoard->append(data->getCurrentTime()+"管理员登录成功");
     //登陆后首先需要连接数据库
@@ -20,7 +32,24 @@ AdminWindow::AdminWindow(QWidget *parent) :
     on_FlushButton_clicked();
     on_FlushButton_2_clicked();
     on_FlushButton_3_clicked();
+
+//    timer->stop();//停止定时器
+//    if(currentValue != 100)
+//        currentValue = 100;
+//    pd->setValue(currentValue);//进度达到最大值
+//    delete pd;//关闭进度对话框
 }
+
+void AdminWindow::updateProgressDialog(){
+    currentValue++;
+    if( currentValue == 100 )
+        currentValue = 0;
+    pd ->setValue(currentValue);
+    QCoreApplication::processEvents();//避免界面冻结
+    if(pd->wasCanceled())
+        pd->setHidden(true);//隐藏对话框
+}
+
 
 AdminWindow::~AdminWindow()
 {
@@ -220,4 +249,10 @@ void AdminWindow::on_FlushButton_3_clicked()
     }else{
         QMessageBox::warning(this,"查询学生信息错误",query.lastError().text());
     }
+}
+
+void AdminWindow::on_AddLessonButton_2_clicked()
+{
+    AddTeacherWidget* widget=new AddTeacherWidget();
+    widget->show();
 }

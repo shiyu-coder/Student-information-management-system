@@ -22,6 +22,7 @@ SOURCES += \
     aboutwidget.cpp \
     adddeptwidget.cpp \
     addstuwidget.cpp \
+    addteacherwidget.cpp \
     adminwindow.cpp \
     connectdabasewidget.cpp \
     data.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     modifydeptmsgwidget.cpp \
+    modifylessonwidget.cpp \
     student.cpp \
     studentwindow.cpp \
     teacher.cpp \
@@ -43,6 +45,7 @@ HEADERS += \
     aboutwidget.h \
     adddeptwidget.h \
     addstuwidget.h \
+    addteacherwidget.h \
     adminwindow.h \
     connectdabasewidget.h \
     data.h \
@@ -53,6 +56,7 @@ HEADERS += \
     loginwidget.h \
     mainwindow.h \
     modifydeptmsgwidget.h \
+    modifylessonwidget.h \
     student.h \
     studentwindow.h \
     teacher.h \
@@ -63,6 +67,7 @@ FORMS += \
     aboutwidget.ui \
     adddeptwidget.ui \
     addstuwidget.ui \
+    addteacherwidget.ui \
     adminwindow.ui \
     connectdabasewidget.ui \
     deptwidget.ui \
@@ -70,6 +75,7 @@ FORMS += \
     loginwidget.ui \
     mainwindow.ui \
     modifydeptmsgwidget.ui \
+    modifylessonwidget.ui \
     studentwindow.ui \
     teacherwindow.ui \
     weblogwidget.ui
