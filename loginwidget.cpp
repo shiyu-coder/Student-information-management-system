@@ -46,18 +46,24 @@ void LogInWidget::on_toolButton_clicked()
 
             AdminWindow *adminWindow;
             adminWindow=new AdminWindow();
+            pd->setValue(MAX_SEC/5);
+            qApp->processEvents();
             adminWindow->on_FlushButton_clicked();
-            qApp->processEvents();
+
             pd->setValue(MAX_SEC*2/3);
+            qApp->processEvents();
             adminWindow->on_FlushButton_2_clicked();
-            qApp->processEvents();
+
             pd->setValue(MAX_SEC*3/4);
+            qApp->processEvents();
             adminWindow->on_FlushButton_3_clicked();
-            qApp->processEvents();
+
             pd->setValue(MAX_SEC*4/5);
-            adminWindow->on_FlushButton_4_clicked();
             qApp->processEvents();
+            adminWindow->on_FlushButton_4_clicked();
+
             pd->setValue(MAX_SEC);
+            qApp->processEvents();
 
             //timer->stop();
             pd->close();

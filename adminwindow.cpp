@@ -58,8 +58,11 @@ void AdminWindow::on_actionLoadClassFromWeb_triggered()
 {
     LoadClassFromWebWidget *loadWidget=new LoadClassFromWebWidget();
     loadWidget->show();
-    WebLogWidget webLogWidget;
-    webLogWidget.show();
+    Data *data=Data::getData();
+    if(!data->haveLoggedInSIMS){
+        WebLogWidget *webLogWidget=new WebLogWidget();
+        webLogWidget->show();
+    }
 }
 
 void AdminWindow::closeEvent(QCloseEvent *event){

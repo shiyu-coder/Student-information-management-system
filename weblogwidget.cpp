@@ -7,7 +7,7 @@ WebLogWidget::WebLogWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     //加载登录界面
-    QWebEngineView *logView=new QWebEngineView(this);
+    logView=new QWebEngineView(this);
     logView->load(QUrl("http://elite.nju.edu.cn/jiaowu/index.jsp"));
     logView->resize(this->size());
 

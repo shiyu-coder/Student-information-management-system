@@ -1,4 +1,4 @@
-#ifndef WEBLOGWIDGET_H
+﻿#ifndef WEBLOGWIDGET_H
 #define WEBLOGWIDGET_H
 
 #include <QWidget>
@@ -31,6 +31,7 @@ public:
 private:
     Ui::WebLogWidget *ui;
     QMap<QString,QString> logCookie;
+    QWebEngineView *logView;
 };
 
 #endif // WEBLOGWIDGET_H

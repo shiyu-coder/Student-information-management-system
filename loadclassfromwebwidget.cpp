@@ -42,8 +42,8 @@ void LoadClassFromWebWidget::on_getLessonButton_clicked()
     qDebug()<<"URL::::"<<leUrl;
     //WebLogWidget *webLogWidget=new WebLogWidget();
     //webLogWidget->show();
-    leCookie.clear();
     leCookie=data->cookie;
+    if(!data->haveLoggedInSIMS) data->haveLoggedInSIMS=true;
     qDebug()<<"Cookie-->"<<leCookie;
     if(leUrl!=""&&leCookie!=""){//如果都没问题，就可以开始获取html了
         ui->spiderMsg->append(data->getCurrentTime()+"Begin request...");
@@ -74,6 +74,7 @@ void LoadClassFromWebWidget::ReplyFinished(QNetworkReply *reply){
     qDebug()<<"gotHtml";
     ui->spiderMsg->append(data->getCurrentTime()+"Request successful!");
     ui->spiderMsg->append(data->getCurrentTime()+"Processing response information...");
+    qApp->processEvents();
     ori_lesson=reply->readAll();
     ori_lesson.replace('\n','p');
     ori_lesson.replace(' ','p');
@@ -95,6 +96,7 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
     qDebug()<<"Begin regular";
     Data* data=Data::getData();
     ui->spiderMsg->append(data->getCurrentTime()+"Extract relevant information...");
+    qApp->processEvents();
     //确定正则表达式
     QRegExp re_beg(tr("课程信息"));
     QRegExp re_end(tr("</table>"));
@@ -107,6 +109,7 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
     DataQuery *iquery=DataQuery::getDataQuery();
     QString result;
     ui->spiderMsg->append(data->getCurrentTime()+"Import information into database...");
+    qApp->processEvents();
     while(index_beg<index_end){
         match = re.match(ori_lesson,index_beg);
         if(match.hasMatch()){

@@ -2,6 +2,7 @@
 
 Data::Data()
 {
+    haveLoggedInSIMS=false;
 }
 
 Data* Data::getData(){
