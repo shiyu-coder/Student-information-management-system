@@ -138,7 +138,7 @@ create table ScholarAppli(
     Sno varchar(10),
     Scholarship varchar(20),
     Reason varchar(200),
-    Response char(1) CHECK(Response IN ('0','1','2')),/*1-通过, 0-不通过, 2-不可兼得*/
+    Response char(1) CHECK(Response IN ('0','1','2','3')),/*1-通过, 0-不通过, 2-不可兼得，3-未审核*/
     FOREIGN KEY(Sno) REFERENCES Student(Sno) ON DELETE CASCADE,
     FOREIGN KEY(Scholarship) REFERENCES ScholarLst(Scholarship) ON DELETE CASCADE 
 )

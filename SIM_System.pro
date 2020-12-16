@@ -21,6 +21,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     aboutwidget.cpp \
     adddeptwidget.cpp \
+    addscholarwidget.cpp \
     addstuwidget.cpp \
     addteacherwidget.cpp \
     adminwindow.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
     mainwindow.cpp \
     modifydeptmsgwidget.cpp \
     modifylessonwidget.cpp \
+    scholarmsgwidget.cpp \
     student.cpp \
     studentwindow.cpp \
     teacher.cpp \
@@ -44,6 +46,7 @@ SOURCES += \
 HEADERS += \
     aboutwidget.h \
     adddeptwidget.h \
+    addscholarwidget.h \
     addstuwidget.h \
     addteacherwidget.h \
     adminwindow.h \
@@ -57,6 +60,7 @@ HEADERS += \
     mainwindow.h \
     modifydeptmsgwidget.h \
     modifylessonwidget.h \
+    scholarmsgwidget.h \
     student.h \
     studentwindow.h \
     teacher.h \
@@ -66,6 +70,7 @@ HEADERS += \
 FORMS += \
     aboutwidget.ui \
     adddeptwidget.ui \
+    addscholarwidget.ui \
     addstuwidget.ui \
     addteacherwidget.ui \
     adminwindow.ui \
@@ -76,6 +81,7 @@ FORMS += \
     mainwindow.ui \
     modifydeptmsgwidget.ui \
     modifylessonwidget.ui \
+    scholarmsgwidget.ui \
     studentwindow.ui \
     teacherwindow.ui \
     weblogwidget.ui

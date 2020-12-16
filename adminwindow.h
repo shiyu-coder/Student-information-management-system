@@ -12,6 +12,9 @@
 #include<QTimer>
 #include<QProgressDialog>
 #include<addteacherwidget.h>
+#include<addscholarwidget.h>
+#include<loginwidget.h>
+#include<scholarmsgwidget.h>
 
 namespace Ui {
 class AdminWindow;
@@ -25,7 +28,11 @@ public:
     explicit AdminWindow(QWidget *parent = nullptr);
     ~AdminWindow();
 
-private slots:
+    void setProgressDialog(QProgressDialog * pd);
+
+    void updateProgress();
+
+public slots:
     void on_actionLoadClassFromWeb_triggered();
 
     void closeEvent(QCloseEvent *event);
@@ -49,6 +56,13 @@ private slots:
     void updateProgressDialog();
 
     void on_AddLessonButton_2_clicked();
+
+    void on_FlushButton_4_clicked();
+
+private slots:
+    void on_toolButton_26_clicked();
+
+    void on_ScholarshipWidget_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     Ui::AdminWindow *ui;

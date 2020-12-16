@@ -184,17 +184,6 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QToolButton" name="DeleteLessonButton">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
-hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
-         </property>
-         <property name="text">
-          <string>查找课程</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
     </widget>
@@ -253,17 +242,6 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
          </property>
          <property name="text">
           <string>删除教师</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="FindLessonButton_2">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
-hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
-         </property>
-         <property name="text">
-          <string>查找教师</string>
          </property>
         </widget>
        </item>
@@ -394,17 +372,6 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QToolButton" name="FindStudentButton">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
-hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
-         </property>
-         <property name="text">
-          <string>查找学生</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
     </widget>
@@ -423,13 +390,13 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
-        <widget class="QToolButton" name="toolButton_25">
+        <widget class="QToolButton" name="FlushButton_4">
          <property name="styleSheet">
           <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
 hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
          </property>
          <property name="text">
-          <string>修改奖学金信息</string>
+          <string>刷新</string>
          </property>
         </widget>
        </item>
@@ -452,17 +419,6 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
          </property>
          <property name="text">
           <string>删除奖学金</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButton_28">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
-hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
-         </property>
-         <property name="text">
-          <string>查找奖学金</string>
          </property>
         </widget>
        </item>
@@ -510,7 +466,7 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
      <attribute name="title">
       <string>待处理事项</string>
      </attribute>
-     <widget class="QListWidget" name="ScholarshipWidget_2">
+     <widget class="QListWidget" name="MsgWidget">
       <property name="geometry">
        <rect>
         <x>0</x>

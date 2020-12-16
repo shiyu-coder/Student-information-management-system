@@ -3,6 +3,8 @@
 #include<mainwindow.h>
 #include<adminwindow.h>
 
+#define MAX_SEC 10000
+
 LogInWidget::LogInWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LogInWidget)
@@ -27,22 +29,39 @@ void LogInWidget::on_toolButton_clicked()
     if(input_type==0){
         if(input_userName=="admin" && input_key=="123"){
             pd=new QProgressDialog(this);
-            pd->setRange(0,10001);
+            pd->setRange(0,MAX_SEC);
             pd->setWindowModality(Qt::WindowModal);
             pd->setModal(true);
             pd->setMinimumDuration(5);
             pd->setWindowTitle("请稍后...");
             pd->setFixedWidth(400);
             pd->setValue(0);
+
+            //timer=new QTimer();
+            //connect(timer,SIGNAL(timeout()),this,SLOT(updateProgressDialog()));
+            //timer->start(100);
+
+            pd->setValue(0);
             pd->show();
-            for(int i=0;i<100;i++){
-                for(int j=0;j<100;j++){
-                    updateProgressDialog();
-                }
-            }
 
             AdminWindow *adminWindow;
             adminWindow=new AdminWindow();
+            adminWindow->on_FlushButton_clicked();
+            qApp->processEvents();
+            pd->setValue(MAX_SEC*2/3);
+            adminWindow->on_FlushButton_2_clicked();
+            qApp->processEvents();
+            pd->setValue(MAX_SEC*3/4);
+            adminWindow->on_FlushButton_3_clicked();
+            qApp->processEvents();
+            pd->setValue(MAX_SEC*4/5);
+            adminWindow->on_FlushButton_4_clicked();
+            qApp->processEvents();
+            pd->setValue(MAX_SEC);
+
+            //timer->stop();
+            pd->close();
+
             adminWindow->show();
             this->close();
         }else{
@@ -70,8 +89,9 @@ void LogInWidget::on_toolButton_clicked()
 
 void LogInWidget::updateProgressDialog(){
     currentValue++;
+    if(currentValue==MAX_SEC) currentValue=0;
     pd->setValue(currentValue);
-    QCoreApplication::processEvents();//避免界面冻结
+    qApp->processEvents();
     if(pd->wasCanceled())
         pd->setHidden(true);//隐藏对话框
 }

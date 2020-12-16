@@ -29,9 +29,7 @@ AdminWindow::AdminWindow(QWidget *parent) :
     }else{
         QMessageBox::warning(this,"连接到数据库",result);
     }
-    on_FlushButton_clicked();
-    on_FlushButton_2_clicked();
-    on_FlushButton_3_clicked();
+
 
 //    timer->stop();//停止定时器
 //    if(currentValue != 100)
@@ -60,8 +58,8 @@ void AdminWindow::on_actionLoadClassFromWeb_triggered()
 {
     LoadClassFromWebWidget *loadWidget=new LoadClassFromWebWidget();
     loadWidget->show();
-    WebLogWidget *webLogWidget=new WebLogWidget();
-    webLogWidget->show();
+    WebLogWidget webLogWidget;
+    webLogWidget.show();
 }
 
 void AdminWindow::closeEvent(QCloseEvent *event){
@@ -161,6 +159,7 @@ void AdminWindow::on_FlushButton_clicked()
             //开始展示课程
             QStringList timeThansfer;
             timeThansfer<<"一"<<"二"<<"三"<<"四"<<"五"<<"六"<<"日";
+            //updateProgress();
             if(term1){
                 //处理课程时间
                 QString time;
@@ -215,6 +214,7 @@ void AdminWindow::on_FlushButton_2_clicked()
     query.exec("select * from Teacher");
     if(query.lastError().type()==QSqlError::NoError){
         while(query.next()){
+            //updateProgress();
             ui->TeacherWidget->setRowCount(ui->TeacherWidget->rowCount()+1);
             ui->TeacherWidget->setItem(ui->TeacherWidget->rowCount()-1,0,new QTableWidgetItem(query.value(0).toString()));
             ui->TeacherWidget->setItem(ui->TeacherWidget->rowCount()-1,1,new QTableWidgetItem(query.value(1).toString()));
@@ -239,6 +239,7 @@ void AdminWindow::on_FlushButton_3_clicked()
     query.exec("select * from Student");
     if(query.lastError().type()==QSqlError::NoError){
         while(query.next()){
+            //updateProgress();
             ui->StudentWidget->setRowCount(ui->StudentWidget->rowCount()+1);
             ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,0,new QTableWidgetItem(query.value(0).toString()));
             ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,1,new QTableWidgetItem(query.value(1).toString()));
@@ -254,5 +255,71 @@ void AdminWindow::on_FlushButton_3_clicked()
 void AdminWindow::on_AddLessonButton_2_clicked()
 {
     AddTeacherWidget* widget=new AddTeacherWidget();
+    widget->show();
+}
+
+void AdminWindow::on_FlushButton_4_clicked()
+{
+    ui->ScholarshipWidget->clear();
+    ui->StudentWidget->setRowCount(0);
+    QSqlQuery query;
+    query.exec("select * from ScholarLst");
+    if(query.lastError().type()==QSqlError::NoError){
+        while(query.next()){
+            QSqlQuery examQuery;
+            examQuery.exec("select * from ScholarAppli where Scholarship='"+query.value(0).toString()+"' and Response='3'");
+            if(examQuery.lastError().type()==QSqlError::NoError){
+                if(examQuery.next()){
+                    ui->ScholarshipWidget->addItem("* "+query.value(0).toString()+"  金额："+query.value(2).toString()+"元"+"  介绍："+query.value(1).toString());
+                }else{
+                    ui->ScholarshipWidget->addItem(query.value(0).toString()+"  金额："+query.value(2).toString()+"元"+"  介绍："+query.value(1).toString());
+                }
+            }else{
+                QMessageBox::warning(this,"查询奖学金申请信息错误",examQuery.lastError().text());
+            }
+
+        }
+    }else{
+        QMessageBox::warning(this,"查询奖学金错误",query.lastError().text());
+    }
+}
+
+void AdminWindow::setProgressDialog(QProgressDialog * pd_){
+    this->pd=pd_;
+}
+
+void AdminWindow::updateProgress(){
+    if(pd){
+        if(pd->value()==pd->maximum()){
+            pd->setValue(0);
+        }else{
+            pd->setValue(pd->value()+1);
+        }
+    }
+}
+
+void AdminWindow::on_toolButton_26_clicked()
+{
+    AddScholarWidget *widget=new AddScholarWidget();
+    widget->show();
+}
+
+void AdminWindow::on_ScholarshipWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+    QString content=item->text();
+    QString name;
+    for(int i=0;i<content.size();i++){
+        if(content.at(i)==' '){
+            break;
+        }else if(content.at(i)=='*'){
+            i++;
+        }
+        else{
+            name+=content.at(i);
+        }
+    }
+    ScholarMsgWidget *widget=new ScholarMsgWidget();
+    widget->setName(name);
+    widget->flush();
     widget->show();
 }
