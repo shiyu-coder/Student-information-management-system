@@ -66,10 +66,10 @@ border-image:url();
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/SIM_System_Pics/resources/Button.png);
-QPushButton{background-color:black;color: white;   border-radius: 10px;  border: 2px groove gray;border-style: outset;}
-hover{background-color:white; color: black;}
-pressed{background-color:rgb(85, 170, 255);border-style: inset; }</string>
+     <string notr="true">QToolButton{border-image: url(:/SIM_System_Pics/resources/Button.png);}
+QToolButton:hover{border-image: url(:/SIM_System_Pics/resources/Button3.png);}
+QToolButton:pressed{border-image: url(:/SIM_System_Pics/resources/Button2.png);}
+</string>
     </property>
     <property name="text">
      <string/>
