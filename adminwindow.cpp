@@ -264,7 +264,6 @@ void AdminWindow::on_AddLessonButton_2_clicked()
 void AdminWindow::on_FlushButton_4_clicked()
 {
     ui->ScholarshipWidget->clear();
-    ui->StudentWidget->setRowCount(0);
     QSqlQuery query;
     query.exec("select * from ScholarLst");
     if(query.lastError().type()==QSqlError::NoError){
@@ -325,4 +324,21 @@ void AdminWindow::on_ScholarshipWidget_itemDoubleClicked(QListWidgetItem *item)
     widget->setName(name);
     widget->flush();
     widget->show();
+}
+
+void AdminWindow::on_ModifyTeacherButton_clicked()
+{
+    QList<QTableWidgetItem*> items = ui->TeacherWidget->selectedItems();
+    if(items.size()<=0){
+        QMessageBox::warning(this,"错误","您没有选中任何教师！");
+    }else{
+        int rowIndex=ui->TeacherWidget->row(items.at(0));
+        QString tno=ui->TeacherWidget->item(rowIndex,0)->text();
+        QString tname=ui->TeacherWidget->item(rowIndex,1)->text();
+        QString dept=ui->TeacherWidget->item(rowIndex,2)->text();
+        ModifyTeacherWidget *widget=new ModifyTeacherWidget();
+        widget->setTno(tno,tname,dept);
+        widget->flush();
+        widget->show();
+    }
 }

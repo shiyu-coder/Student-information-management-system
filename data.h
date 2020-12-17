@@ -49,6 +49,11 @@ public://变量区域
      * 标记是否已经登陆过教服系统
      */
     bool haveLoggedInSIMS;
+    /**
+     * @brief sno
+     * 当前登录学生的学生编号
+     */
+    QString sno;
 private:
     /**
      * @brief Data

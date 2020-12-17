@@ -32,7 +32,22 @@ QString DataQuery::connectToDatabase(QString userName,QString password){
 }
 
 bool DataQuery::canLogInSIMS(QString userName,QString password,int type){
-    return true;
+    if(type==1){
+        //教师
+        if(connectToDatabase("T"+userName,password)==""){
+            return true;
+        }else{
+            return false;
+        }
+    }else if(type==2){
+        //学生
+        if(connectToDatabase("S"+userName,password)==""){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    return false;
 }
 
 QString DataQuery::init(){

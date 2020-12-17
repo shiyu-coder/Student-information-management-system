@@ -74,7 +74,15 @@ void AddStuWidget::on_ConfirmButton_clicked()
         sqls<<"GRANT SELECT ON S"+info.at(0)+"_Info TO S"+info.at(0);
         sqls<<"CREATE VIEW S"+info.at(0)+"_Course AS SELECT DISTINCT Stu_Cour.Cno, Stu_Cour.Cterm FROM Stu_Cour WHERE Stu_Cour.Sno='"+info.at(0)+"'";
         sqls<<"GRANT SELECT, INSERT ON S"+info.at(0)+"_Course TO S"+info.at(0);
-        sqls<<"SELECT S"+info.at(0)+"_Course.Cno, Cname, Tname, S"+info.at(0)+"_Course.Cterm, Wday, Cbegin, Cend FROM S"+info.at(0)+"_Course, CourseBasic, CTime, Tcourse, Teacher WHERE S"+info.at(0)+"_Course.Cno=CourseBasic.Cno AND S"+info.at(0)+"_Course.Cno=Tcourse.Cno AND S"+info.at(0)+"_Course.Cterm=Tcourse.Cterm AND S"+info.at(0)+"_Course.Cno=CTime.Cno AND S"+info.at(0)+"_Course.Cterm=CTime.Cterm";
+        //sqls<<"SELECT S"+info.at(0)+"_Course.Cno, Cname, Tname, S"+info.at(0)+"_Course.Cterm, Wday, Cbegin, Cend FROM S"+info.at(0)+"_Course, CourseBasic, CTime, Tcourse, Teacher WHERE S"+info.at(0)+"_Course.Cno=CourseBasic.Cno AND S"+info.at(0)+"_Course.Cno=Tcourse.Cno AND S"+info.at(0)+"_Course.Cterm=Tcourse.Cterm AND S"+info.at(0)+"_Course.Cno=CTime.Cno AND S"+info.at(0)+"_Course.Cterm=CTime.Cterm";
+        sqls<<"GRANT SELECT ON CourseBasic TO S"+info.at(0);
+        sqls<<"GRANT SELECT ON CTime TO S"+info.at(0);
+        sqls<<"GRANT SELECT ON Tcourse TO S"+info.at(0);
+        sqls<<"GRANT SELECT ON Teacher TO S"+info.at(0);
+        sqls<<"GRANT SELECT ON ScholarLst TO S"+info.at(0);
+        sqls<<"GRANT SELECT ON ScholarAppli TO S"+info.at(0);
+        sqls<<"GRANT SELECT ON ProjectAppli TO S"+info.at(0);
+        sqls<<"GRANT SELECT ON ProjectLst TO S"+info.at(0);
         sqls<<"CREATE VIEW S"+info.at(0)+"_Grade AS SELECT DISTINCT Stu_Cour.Cno, Cname, Cchar, Ccredit, Grade,Cterm FROM Stu_Cour, CourseBasic WHERE Stu_Cour.Sno='"+info.at(0)+"' AND Stu_Cour.Cno=CourseBasic.Cno ";
         sqls<<"GRANT SELECT ON S"+info.at(0)+"_Grade TO S"+info.at(0);
         sqls<<"CREATE VIEW S"+info.at(0)+"_S2A AS SELECT Rcontent, Response FROM S2A WHERE Sno='"+info.at(0)+"'";

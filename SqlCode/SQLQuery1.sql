@@ -75,11 +75,14 @@ CREATE VIEW Sno_Course_0000001 AS SELECT DISTINCT Stu_Cour.Cno, Stu_Cour.Cterm F
 GRANT SELECT, INSERT ON Sno_Course TO 施宇
 
 /*与这个视图一起可以查看这位同学的选课课表*/
-SELECT Sno_Course.Cno, Cname, Tname, Sno_Course.Cterm, Wday, Cbegin, Cend FROM Sno_Course, CourseBasic, CTime, Tcourse, Teacher WHERE Sno_Course.Cno=CourseBasic.Cno AND Sno_Course.Cno=Tcourse.Cno AND Sno_Course.Cterm=Tcourse.Cterm AND Sno_Course.Cno=CTime.Cno AND Sno_Course.Cterm=CTime.Cterm
+/*SELECT Sno_Course.Cno, Cname, Tname, Sno_Course.Cterm, Wday, Cbegin, Cend FROM Sno_Course, CourseBasic, CTime, Tcourse, Teacher WHERE Sno_Course.Cno=CourseBasic.Cno AND Sno_Course.Cno=Tcourse.Cno AND Sno_Course.Cterm=Tcourse.Cterm AND Sno_Course.Cno=CTime.Cno AND Sno_Course.Cterm=CTime.Cterm
+*/
 
-
-
-
+GRANT SELECT ON CourseBasic TO S0000006
+GRANT SELECT ON CTime TO S0000006
+GRANT SELECT ON Tcourse TO S0000006
+GRANT SELECT ON Teacher TO S0000006
+GRANT SELECT ON ScholarAppli TO S0000006
 
 CREATE VIEW Sno_Grade AS SELECT DISTINCT Stu_Cour.Cno, Cname, Cchar, Ccredit, Grade,Cterm FROM Stu_Cour, CourseBasicWHERE Stu_Cour.Sno='x' AND Stu_Cour.Cno=CourseBasic.Cno 
 
