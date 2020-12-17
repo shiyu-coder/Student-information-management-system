@@ -9,23 +9,17 @@
 
 CREATE ROLE Teacher_Tno
 
-CREATE VIEW TC_Tno /*e.g. TC_1*/
-AS 
-SELECT Tcourse.Cterm, CourseBasic.Cno, Cname, Wday, Cbegin, Cend
-FROM CourseBasic, CTime, Tcourse
-WHERE Tcourse.Tno='x' AND Tcourse.Cno=CourseBasic.Cno
-AND Tcourse.Cno=CTime.Cno AND Tcourse.Cterm=CTime.Cterm
+create login T0000001 with password='123456', default_database=E_Chain;
+create user T0000001 for login T0000001 with default_schema=dbo
+
+CREATE VIEW T0000001_TC AS SELECT Tcourse.Cterm, CourseBasic.Cno, Cname, Wday, Cbegin, Cend FROM CourseBasic, CTime, Tcourse WHERE Tcourse.Tno='0000001' AND Tcourse.Cno=CourseBasic.Cno AND Tcourse.Cno=CTime.Cno AND Tcourse.Cterm=CTime.Cterm
 
 GRANT SELECT
-ON TC_Tno
-TO Teacher_Tno
+ON T0000001_TC
+TO T0000001
 
 /*一个老师教授的一门课的具体学生信息，用于后续登录成绩*/
-CREATE VIEW TCS_Tno__Cno_Cterm 
-AS
-SELECT Sno, Grade
-FROM Stu_Cour
-WHERE Stu_Cour.Cno='x' AND Stu_Cour.Cterm='y'
+CREATE VIEW TCS_T0000001__000002_Cterm AS SELECT Sno, Grade FROM Stu_Cour WHERE Stu_Cour.Cno='000002' AND Stu_Cour.Cterm='y'
 
 GRANT SELECT, UPDATE(Grade)
 ON TCS_Tno__Cno_Cterm 
@@ -67,7 +61,7 @@ TO Teacher_Tno
 CREATE ROLE Student_Sno
 
 
-create login 施宇 with password='123456', default_database=E_Chain;
+create login S0000001 with password='123456', default_database=E_Chain;
 create user 施宇 for login 施宇 with default_schema=dbo
 
 CREATE VIEW Sno_Info_0000001 AS SELECT Sno , Sname, Ssex, Sdept, Sgrade FROM Student WHERE Sno='0000001'

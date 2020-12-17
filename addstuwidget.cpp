@@ -68,21 +68,21 @@ void AddStuWidget::on_ConfirmButton_clicked()
     query.exec("insert into Student values('"+info.at(0)+"','"+info.at(1)+"','"+info.at(2)+"','"+info.at(3)+"','"+info.at(4)+"')");
     if(query.lastError().type()==QSqlError::NoError){
         QStringList sqls;
-        sqls<<"create login "+info.at(1)+" with password='123456', default_database=E_Chain";
-        sqls<<"create user "+info.at(1)+" for login "+info.at(1)+" with default_schema=dbo";
-        sqls<<"CREATE VIEW Sno_Info_"+info.at(0)+" AS SELECT Sno , Sname, Ssex, Sdept, Sgrade FROM Student WHERE Sno='"+info.at(0)+"'";
-        sqls<<"GRANT SELECT ON Sno_Info_"+info.at(0)+" TO "+info.at(1)+"";
-        sqls<<"CREATE VIEW Sno_Course_"+info.at(0)+" AS SELECT DISTINCT Stu_Cour.Cno, Stu_Cour.Cterm FROM Stu_Cour WHERE Stu_Cour.Sno='"+info.at(0)+"'";
-        sqls<<"GRANT SELECT, INSERT ON Sno_Course_"+info.at(0)+" TO "+info.at(1)+"";
-        sqls<<"SELECT Sno_Course_"+info.at(0)+".Cno, Cname, Tname, Sno_Course_"+info.at(0)+".Cterm, Wday, Cbegin, Cend FROM Sno_Course_"+info.at(0)+", CourseBasic, CTime, Tcourse, Teacher WHERE Sno_Course_"+info.at(0)+".Cno=CourseBasic.Cno AND Sno_Course_"+info.at(0)+".Cno=Tcourse.Cno AND Sno_Course_"+info.at(0)+".Cterm=Tcourse.Cterm AND Sno_Course_"+info.at(0)+".Cno=CTime.Cno AND Sno_Course_"+info.at(0)+".Cterm=CTime.Cterm";
-        sqls<<"CREATE VIEW Sno_Grade_"+info.at(0)+" AS SELECT DISTINCT Stu_Cour.Cno, Cname, Cchar, Ccredit, Grade,Cterm FROM Stu_Cour, CourseBasic WHERE Stu_Cour.Sno='"+info.at(0)+"' AND Stu_Cour.Cno=CourseBasic.Cno ";
-        sqls<<"GRANT SELECT ON Sno_Grade_"+info.at(0)+" TO "+info.at(1);
-        sqls<<"CREATE VIEW Sno_S2A_"+info.at(0)+" AS SELECT Rcontent, Response FROM S2A WHERE Sno='"+info.at(0)+"'";
-        sqls<<"GRANT SELECT, UPDATE(Rcontent),INSERT  ON Sno_S2A_"+info.at(0)+" TO "+info.at(1);
-        sqls<<"CREATE VIEW Sno_Pro_"+info.at(0)+" AS SELECT ProjectName, Reason, Response FROM ProjectAppli WHERE Sno='"+info.at(0)+"'";
-        sqls<<"GRANT SELECT, UPDATE(ProjectName, Reason),INSERT ON Sno_Pro_"+info.at(0)+" TO "+info.at(1);
-        sqls<<"CREATE VIEW Sno_Scho_"+info.at(0)+" AS SELECT Scholarship, Reason, Response FROM ScholarAppli WHERE Sno='"+info.at(0)+"'";
-        sqls<<"GRANT SELECT, UPDATE(Scholarship, Reason),INSERT ON Sno_Scho_"+info.at(0)+" TO "+info.at(1);
+        sqls<<"create login S"+info.at(0)+" with password='123456', default_database=E_Chain";
+        sqls<<"create user S"+info.at(0)+" for login S"+info.at(0)+" with default_schema=dbo";
+        sqls<<"CREATE VIEW S"+info.at(0)+"_Info AS SELECT Sno , Sname, Ssex, Sdept, Sgrade FROM Student WHERE Sno='"+info.at(0)+"'";
+        sqls<<"GRANT SELECT ON S"+info.at(0)+"_Info TO S"+info.at(0);
+        sqls<<"CREATE VIEW S"+info.at(0)+"_Course AS SELECT DISTINCT Stu_Cour.Cno, Stu_Cour.Cterm FROM Stu_Cour WHERE Stu_Cour.Sno='"+info.at(0)+"'";
+        sqls<<"GRANT SELECT, INSERT ON S"+info.at(0)+"_Course TO S"+info.at(0);
+        sqls<<"SELECT S"+info.at(0)+"_Course.Cno, Cname, Tname, S"+info.at(0)+"_Course.Cterm, Wday, Cbegin, Cend FROM S"+info.at(0)+"_Course, CourseBasic, CTime, Tcourse, Teacher WHERE S"+info.at(0)+"_Course.Cno=CourseBasic.Cno AND S"+info.at(0)+"_Course.Cno=Tcourse.Cno AND S"+info.at(0)+"_Course.Cterm=Tcourse.Cterm AND S"+info.at(0)+"_Course.Cno=CTime.Cno AND S"+info.at(0)+"_Course.Cterm=CTime.Cterm";
+        sqls<<"CREATE VIEW S"+info.at(0)+"_Grade AS SELECT DISTINCT Stu_Cour.Cno, Cname, Cchar, Ccredit, Grade,Cterm FROM Stu_Cour, CourseBasic WHERE Stu_Cour.Sno='"+info.at(0)+"' AND Stu_Cour.Cno=CourseBasic.Cno ";
+        sqls<<"GRANT SELECT ON S"+info.at(0)+"_Grade TO S"+info.at(0);
+        sqls<<"CREATE VIEW S"+info.at(0)+"_S2A AS SELECT Rcontent, Response FROM S2A WHERE Sno='"+info.at(0)+"'";
+        sqls<<"GRANT SELECT, UPDATE(Rcontent),INSERT  ON S"+info.at(0)+"_S2A TO S"+info.at(0);
+        sqls<<"CREATE VIEW S"+info.at(0)+"_Pro AS SELECT ProjectName, Reason, Response FROM ProjectAppli WHERE Sno='"+info.at(0)+"'";
+        sqls<<"GRANT SELECT, UPDATE(ProjectName, Reason),INSERT ON S"+info.at(0)+"_Pro TO S"+info.at(0);
+        sqls<<"CREATE VIEW S"+info.at(0)+"_Scho AS SELECT Scholarship, Reason, Response FROM ScholarAppli WHERE Sno='"+info.at(0)+"'";
+        sqls<<"GRANT SELECT, UPDATE(Scholarship, Reason),INSERT ON S"+info.at(0)+"_Scho TO S"+info.at(0);
 
         QString res;
         for(int i=0;i<sqls.size();i++){
