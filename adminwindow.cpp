@@ -342,3 +342,39 @@ void AdminWindow::on_ModifyTeacherButton_clicked()
         widget->show();
     }
 }
+
+void AdminWindow::on_FlushButton_5_clicked()
+{
+    ui->MsgWidget->clear();
+    QSqlQuery query;
+    query.exec("select Rcontent,Response from T2A ");
+    if(query.lastError().type()==QSqlError::NoError){
+        while(query.next()){
+            ui->MsgWidget->addItem(query.value(0).toString()+" 回复："+query.value(1).toString());
+        }
+    }else{
+        QMessageBox::warning(this,"查询待处理信息错误",query.lastError().text());
+    }
+    query.exec("select Rcontent,Response from S2A ");
+    if(query.lastError().type()==QSqlError::NoError){
+        while(query.next()){
+            ui->MsgWidget->addItem(query.value(0).toString()+" 回复："+query.value(1).toString());
+        }
+    }else{
+        QMessageBox::warning(this,"查询待处理信息错误",query.lastError().text());
+    }
+}
+
+void AdminWindow::on_MsgWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+    ModifyApplyWidget* widget=new ModifyApplyWidget();
+    QString content;
+    for(int i=0;i<item->text().size();i++){
+        if(item->text().at(i)==' ') break;
+        else{
+            content+=item->text().at(i);
+        }
+    }
+    widget->setContent(content);
+    widget->show();
+}

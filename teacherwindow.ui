@@ -95,7 +95,7 @@ QTabBar::tab:selected{
        <bool>true</bool>
       </attribute>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>111</number>
+       <number>121</number>
       </attribute>
       <column>
        <property name="text">
@@ -110,11 +110,6 @@ QTabBar::tab:selected{
       <column>
        <property name="text">
         <string>课程类型</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>课程教师</string>
        </property>
       </column>
       <column>
@@ -171,17 +166,6 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
          </property>
          <property name="text">
           <string>刷新</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="ApplyModifyLessonButton">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
-hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
-         </property>
-         <property name="text">
-          <string>申请修改课程信息</string>
          </property>
         </widget>
        </item>
@@ -332,20 +316,9 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QToolButton" name="DeleteProButton">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
-hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
-         </property>
-         <property name="text">
-          <string>删除大创项目</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
-     <widget class="QListWidget" name="ScholarshipWidget">
+     <widget class="QListWidget" name="ProWidget">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -387,13 +360,13 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
      <attribute name="title">
       <string>待处理事项</string>
      </attribute>
-     <widget class="QListWidget" name="ScholarshipWidget_2">
+     <widget class="QListWidget" name="MsgWidget">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>50</y>
         <width>1221</width>
-        <height>571</height>
+        <height>521</height>
        </rect>
       </property>
       <property name="font">
@@ -409,6 +382,40 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
        </size>
       </property>
      </widget>
+     <widget class="QWidget" name="widget_5" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QToolButton" name="FlushButton_4">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
+         <property name="text">
+          <string>刷新</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="AddApplyButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
+         <property name="text">
+          <string>新增申请</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -421,8 +428,32 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>设置</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>关于</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionHelp">
+   <property name="text">
+    <string>说明文档</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>程序信息</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="SIMS_res.qrc"/>

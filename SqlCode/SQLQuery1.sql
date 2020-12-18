@@ -12,39 +12,40 @@ CREATE ROLE Teacher_Tno
 create login T0000001 with password='123456', default_database=E_Chain;
 create user T0000001 for login T0000001 with default_schema=dbo
 
-CREATE VIEW T0000001_TC AS SELECT Tcourse.Cterm, CourseBasic.Cno, Cname, Wday, Cbegin, Cend FROM CourseBasic, CTime, Tcourse WHERE Tcourse.Tno='0000001' AND Tcourse.Cno=CourseBasic.Cno AND Tcourse.Cno=CTime.Cno AND Tcourse.Cterm=CTime.Cterm
+create view T0000003_Course as select Cno,Cterm from Tcourse
+CREATE VIEW T0000003_Course AS SELECT Sno, Grade, Stu_Cour.Cno, Stu_Cour.Cterm FROM Stu_Cour, Tcourse WHERE Tcourse.Tno='x' AND Tcourse.Cterm=Stu_Cour.Cterm AND Tcourse.Cno=Stu_Cour.Cno
+GRANT SELECT ON CourseBasic TO T0000001
+GRANT SELECT ON CTime TO T0000001
+GRANT SELECT ON Tcourse TO T0000001
+GRANT SELECT ON Stu_Cour TO T0000001
+GRANT SELECT ON Teacher TO T0000001
+GRANT SELECT ON Student TO T0111
+GRANT SELECT,INSERT ON T2A TO T0111
+GRANT SELECT,INSERT,DELETE ON ScholarAppli TO T0111
+GRANT SELECT,INSERT,DELETE ON ScholarLst TO T0111
+GRANT SELECT,INSERT,DELETE ON ProjectAppli TO T0111
+GRANT SELECT,INSERT,DELETE ON ProjectLst TO T0111
 
-GRANT SELECT
-ON T0000001_TC
-TO T0000001
+GRANT SELECT, UPDATE(Grade) ON T0000001_Course  TO T0000001
 
-/*一个老师教授的一门课的具体学生信息，用于后续登录成绩*/
-CREATE VIEW TCS_T0000001__000002_Cterm AS SELECT Sno, Grade FROM Stu_Cour WHERE Stu_Cour.Cno='000002' AND Stu_Cour.Cterm='y'
+CREATE VIEW T0000001_T2A AS SELECT Rcontent, Response FROM T2A WHERE T2A.Tno='T0000001'
 
-GRANT SELECT, UPDATE(Grade)
-ON TCS_Tno__Cno_Cterm 
-TO Teacher_Tno
+GRANT SELECT, UPDATE(Rcontent),INSERT  ON T0000001_T2A TO T0000001
 
-CREATE VIEW T2A_Tno
-AS
-SELECT Rcontent, Response
-FROM T2A
-WHERE T2A.Tno='x'
+CREATE VIEW T0000001_TP AS SELECT Sno, ProjectName, Reason, Response FROM ProjectAppli, ProjectLst WHERE ProjectLst.Tno='T0000001' AND ProjectAppli.ProjectName=ProjectLst.ProgramName
 
-GRANT SELECT, UPDATE(Rcontent),INSERT/*?*/
-ON T2A_Tno
-TO Teacher_Tno
+GRANT SELECT, UPDATE(Response) ON T0000001_TP TO T0000001
 
-CREATE VIEW TP_Tno
-AS
-SELECT Sno, ProjectName, Reason, Response
-FROM ProjectAppli, ProjectLst
-WHERE ProjectLst.Tno='x' AND ProjectAppli.ProjectName=ProjectLst.ProgramName
-
-GRANT SELECT, UPDATE(Response)
-ON TP_Tno
-TO Teacher_Tno
-
+use master
+go
+Declare @SQLText Varchar(1000),@loginNames varchar(1000)
+set @loginNames=''
+select @loginNames=@loginNames+A.name+',' FROM syslogins A WHERE  (name<>'sa' AND name like 's%')
+if @loginNames <> ''
+set @SQLText='sp_droplogin '+left(@loginNames,len(@loginNames)-1)
+Exec(@SQLText)
+use E_Chain
+go
 
 
 /*
@@ -78,11 +79,16 @@ GRANT SELECT, INSERT ON Sno_Course TO 施宇
 /*SELECT Sno_Course.Cno, Cname, Tname, Sno_Course.Cterm, Wday, Cbegin, Cend FROM Sno_Course, CourseBasic, CTime, Tcourse, Teacher WHERE Sno_Course.Cno=CourseBasic.Cno AND Sno_Course.Cno=Tcourse.Cno AND Sno_Course.Cterm=Tcourse.Cterm AND Sno_Course.Cno=CTime.Cno AND Sno_Course.Cterm=CTime.Cterm
 */
 
-GRANT SELECT ON CourseBasic TO S0000006
+GRANT SELECT,UPDATE ON CourseBasic TO S0000012
 GRANT SELECT ON CTime TO S0000006
 GRANT SELECT ON Tcourse TO S0000006
 GRANT SELECT ON Teacher TO S0000006
-GRANT SELECT ON ScholarAppli TO S0000006
+GRANT SELECT,INSERT ON ScholarAppli TO S0000006
+GRANT SELECT ON ScholarLst TO S0000006
+GRANT SELECT,INSERT ON ProjectAppli TO S0000009
+GRANT SELECT ON ProjectLst TO S0000009
+GRANT SELECT,INSERT,DELETE ON Stu_Cour TO S0000012
+GRANT SELECT,INSERT ON S2A TO S0000012
 
 CREATE VIEW Sno_Grade AS SELECT DISTINCT Stu_Cour.Cno, Cname, Cchar, Ccredit, Grade,Cterm FROM Stu_Cour, CourseBasicWHERE Stu_Cour.Sno='x' AND Stu_Cour.Cno=CourseBasic.Cno 
 

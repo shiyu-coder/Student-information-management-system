@@ -233,5 +233,47 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
         }
     }
     qDebug()<<"Regular done "<<count;
+    ui->spiderMsg->append(data->getCurrentTime()+"Processing teacher information...");
+    qApp->processEvents();
+    QSqlQuery query;
+    query.exec("select Tno from Teacher");
+    if(query.lastError().type()==QSqlError::NoError){
+        while(query.next()){
+            QString tno=query.value(0).toString();
+            QSqlQuery query2;
+            qDebug()<<"tno----"<<tno;
+            QStringList sqls;
+            sqls<<"create login T"+tno+" with password='123456', default_database=E_Chain;";
+            sqls<<"create user T"+tno+" for login T"+tno+" with default_schema=dbo";
+            sqls<<"GRANT SELECT ON CourseBasic TO T"+tno+"";
+            sqls<<"GRANT SELECT ON CTime TO T"+tno+"";
+            sqls<<"GRANT SELECT ON Tcourse TO T"+tno+"";
+            sqls<<"GRANT SELECT ON Stu_Cour TO T"+tno+"";
+            sqls<<"GRANT SELECT ON Teacher TO T"+tno+"";
+            sqls<<"GRANT SELECT,INSERT,DELETE ON ScholarAppli TO T"+tno+"";
+            sqls<<"GRANT SELECT,INSERT,DELETE ON ScholarLst TO T"+tno+"";
+            sqls<<"GRANT SELECT,INSERT,DELETE ON ProjectAppli TO T"+tno+"";
+            sqls<<"GRANT SELECT,INSERT,DELETE ON ProjectLst TO T"+tno+"";
+            sqls<<"GRANT SELECT ON Student TO T"+tno+"";
+            sqls<<"GRANT SELECT,INSERT ON T2A TO T"+tno+"";
+            sqls<<"CREATE VIEW T"+tno+"_Course AS SELECT Sno, Grade, Stu_Cour.Cno, Stu_Cour.Cterm FROM Stu_Cour, Tcourse WHERE Tcourse.Tno='"+tno+"' AND Tcourse.Cterm=Stu_Cour.Cterm AND Tcourse.Cno=Stu_Cour.Cno";
+            sqls<<"GRANT SELECT, UPDATE(Grade) ON T"+tno+"_Course  TO T"+tno+"";
+            sqls<<"CREATE VIEW T"+tno+"_T2A AS SELECT Rcontent, Response FROM T2A WHERE T2A.Tno='"+tno+"'";
+            sqls<<"GRANT SELECT, UPDATE(Rcontent),INSERT  ON T"+tno+"_T2A TO T"+tno+"";
+            sqls<<"CREATE VIEW T"+tno+"_TP AS SELECT Sno, ProjectName, Reason, Response FROM ProjectAppli, ProjectLst WHERE ProjectLst.Tno='"+tno+"' AND ProjectAppli.ProjectName=ProjectLst.ProgramName";
+            sqls<<"GRANT SELECT, UPDATE(Response) ON T"+tno+"_TP TO T"+tno+"";
+
+            QString res;
+            for(int i=0;i<sqls.size();i++){
+                query2.exec(sqls.at(i));
+                if(query2.lastError().type()!=QSqlError::NoError){
+                    qDebug()<<query2.lastError().text();
+                }
+            }
+        }
+    }else{
+        QMessageBox::warning(this,"查询教师列表错误",query.lastError().text());
+    }
+
     ui->spiderMsg->append(data->getCurrentTime()+"Successfully imported "+QString::number(count)+" courses");
 }

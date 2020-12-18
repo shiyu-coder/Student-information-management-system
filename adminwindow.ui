@@ -71,7 +71,7 @@ QTabBar::tab:selected{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="LessonTab">
      <attribute name="title">
@@ -166,17 +166,6 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
          </property>
          <property name="text">
           <string>刷新</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="ModifyLessonButton">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
-hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
-         </property>
-         <property name="text">
-          <string>修改课程信息</string>
          </property>
         </widget>
        </item>
@@ -488,9 +477,9 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>50</y>
         <width>1221</width>
-        <height>571</height>
+        <height>521</height>
        </rect>
       </property>
       <property name="font">
@@ -505,6 +494,29 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
         <height>40</height>
        </size>
       </property>
+     </widget>
+     <widget class="QWidget" name="widget_5" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1221</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item>
+        <widget class="QToolButton" name="FlushButton_5">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
+         <property name="text">
+          <string>刷新</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>

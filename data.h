@@ -54,6 +54,11 @@ public://变量区域
      * 当前登录学生的学生编号
      */
     QString sno;
+    /**
+     * @brief tno
+     * 当前登录教师的学生编号
+     */
+    QString tno;
 private:
     /**
      * @brief Data
