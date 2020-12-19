@@ -378,3 +378,29 @@ void AdminWindow::on_MsgWidget_itemDoubleClicked(QListWidgetItem *item)
     widget->setContent(content);
     widget->show();
 }
+
+void AdminWindow::on_toolButton_27_clicked()
+{
+    QList<QListWidgetItem*> items=ui->ScholarshipWidget->selectedItems();
+    if(items.size()<=0){
+        QMessageBox::warning(this,"错误","您没有选中任何奖学金！");
+
+    }else{
+        QSqlQuery query;
+        for(int i=0;i<items.size();i++){
+            QString name;
+            QString con=items.at(i)->text();
+            for(int j=0;j<con.size();j++){
+                if(con.at(j)=='*') j++;
+                else if(con.at(j)==' ') break;
+                else name+=con.at(j);
+            }
+            query.exec("delete from ScholarLst where Scholarship='"+name+"' delete from ScholarAppli where Scholarship='"+name+"'");
+            if(query.lastError().type()==QSqlError::NoError){
+                QMessageBox::information(this,"删除奖学金","删除奖学金成功！");
+            }else{
+                QMessageBox::warning(this,"错误",query.lastError().text());
+            }
+        }
+    }
+}

@@ -73,6 +73,8 @@ public slots:
 private slots:
     void on_MsgWidget_itemDoubleClicked(QListWidgetItem *item);
 
+    void on_toolButton_27_clicked();
+
 private:
     Ui::AdminWindow *ui;
 
