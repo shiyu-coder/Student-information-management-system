@@ -71,7 +71,7 @@ QTabBar::tab:selected{
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="LessonTab">
      <attribute name="title">
@@ -487,6 +487,12 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
         <family>楷体</family>
         <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="movement">
+       <enum>QListView::Static</enum>
+      </property>
+      <property name="resizeMode">
+       <enum>QListView::Adjust</enum>
       </property>
       <property name="gridSize">
        <size>

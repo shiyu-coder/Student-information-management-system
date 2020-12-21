@@ -31,6 +31,14 @@ LogInWidget::LogInWidget(QWidget *parent) :
             }
         }else{
             QMessageBox::warning(this,"数据库初始化错误",res);
+            if(iniFile.open(QIODevice::WriteOnly|QIODevice::Text)){
+                iniFile.close();
+            }else{
+                //出现了无法解决的错误，直接退出程序
+                QMessageBox::warning(this,"错误",iniFile.errorString());
+                this->destroy();
+                qApp->quit();
+            }
         }
     }
 }

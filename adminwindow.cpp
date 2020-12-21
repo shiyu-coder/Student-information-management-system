@@ -347,18 +347,18 @@ void AdminWindow::on_FlushButton_5_clicked()
 {
     ui->MsgWidget->clear();
     QSqlQuery query;
-    query.exec("select Rcontent,Response from T2A ");
+    query.exec("select Sname,Rcontent,Response from S2A,Student where S2A.Sno=Student.Sno");
     if(query.lastError().type()==QSqlError::NoError){
         while(query.next()){
-            ui->MsgWidget->addItem(query.value(0).toString()+" 回复："+query.value(1).toString());
+            ui->MsgWidget->addItem("学生："+query.value(0).toString()+"  内容:"+query.value(1).toString()+" 回复："+query.value(2).toString());
         }
     }else{
         QMessageBox::warning(this,"查询待处理信息错误",query.lastError().text());
     }
-    query.exec("select Rcontent,Response from S2A ");
+    query.exec("select Tname,Rcontent,Response from T2A,Teacher where T2A.Tno=Teacher.Tno");
     if(query.lastError().type()==QSqlError::NoError){
         while(query.next()){
-            ui->MsgWidget->addItem(query.value(0).toString()+" 回复："+query.value(1).toString());
+            ui->MsgWidget->addItem("教师："+query.value(0).toString()+" 内容:"+query.value(1).toString()+" 回复："+query.value(2).toString());
         }
     }else{
         QMessageBox::warning(this,"查询待处理信息错误",query.lastError().text());
@@ -368,13 +368,21 @@ void AdminWindow::on_FlushButton_5_clicked()
 void AdminWindow::on_MsgWidget_itemDoubleClicked(QListWidgetItem *item)
 {
     ModifyApplyWidget* widget=new ModifyApplyWidget();
-    QString content;
-    for(int i=0;i<item->text().size();i++){
+    QString content="";
+    int i=0;
+    for(;i<item->text().size();i++){
+        if(item->text().at(i)==':'){
+            i++;
+            break;
+        }
+    }
+    for(;i<item->text().size();i++){
         if(item->text().at(i)==' ') break;
         else{
             content+=item->text().at(i);
         }
     }
+    qDebug()<<content;
     widget->setContent(content);
     widget->show();
 }
