@@ -18,6 +18,7 @@
 #include<modifyteacherwidget.h>
 #include<applyscholarwidget.h>
 #include<modifyapplywidget.h>
+#include<modifystuwidget.h>
 
 namespace Ui {
 class AdminWindow;
@@ -74,6 +75,8 @@ private slots:
     void on_MsgWidget_itemDoubleClicked(QListWidgetItem *item);
 
     void on_toolButton_27_clicked();
+
+    void on_ModifyStudentButton_clicked();
 
 private:
     Ui::AdminWindow *ui;

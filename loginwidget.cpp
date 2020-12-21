@@ -11,6 +11,28 @@ LogInWidget::LogInWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     currentValue=0;
+    //程序初次登录检测
+    //若程序初次登陆，需要先初始化一下
+    //通过initialize.pm文件是否存在检测
+    QFile iniFile("initialize.pm");
+    if(!iniFile.exists()){
+        DataQuery *query=DataQuery::getDataQuery();
+        QString res0=query->connectToDatabase("sa","9638527410.s");
+        if(res0!="") qApp->quit();
+        QString res=query->init();
+        if(res==""){
+            if(iniFile.open(QIODevice::WriteOnly|QIODevice::Text)){
+                iniFile.close();
+            }else{
+                //出现了无法解决的错误，直接退出程序
+                QMessageBox::warning(this,"错误",iniFile.errorString());
+                this->destroy();
+                qApp->quit();
+            }
+        }else{
+            QMessageBox::warning(this,"数据库初始化错误",res);
+        }
+    }
 }
 
 LogInWidget::~LogInWidget()

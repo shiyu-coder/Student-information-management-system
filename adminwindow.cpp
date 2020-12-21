@@ -404,3 +404,16 @@ void AdminWindow::on_toolButton_27_clicked()
         }
     }
 }
+
+void AdminWindow::on_ModifyStudentButton_clicked()
+{
+    ModifyStuWidget *widget=new ModifyStuWidget();
+    QList<QTableWidgetItem*> items=ui->StudentWidget->selectedItems();
+    if(items.size()<=0){
+        QMessageBox::warning(this,"错误","您没有选中任何学生！");
+    }else{
+        int index=ui->StudentWidget->row(items.at(0));
+        widget->setMsg(ui->StudentWidget->item(index,0)->text(),ui->StudentWidget->item(index,1)->text(),ui->StudentWidget->item(index,2)->text(),ui->StudentWidget->item(index,3)->text(),ui->StudentWidget->item(index,4)->text());
+        widget->show();
+    }
+}
