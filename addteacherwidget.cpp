@@ -32,10 +32,10 @@ void AddTeacherWidget::on_QuitButton_clicked()
 void AddTeacherWidget::on_ConfirmButton_clicked()
 {
     QSqlQuery TeaQuery;
-    TeaQuery.exec("select COUNT(Tno) from Teacher");
+    TeaQuery.exec("select MAX(Tno) from Teacher");
     if(TeaQuery.lastError().type()==QSqlError::NoError){
         if(TeaQuery.next()){
-            int tnoIndex=TeaQuery.value(0).toInt();
+            int tnoIndex=TeaQuery.value(0).toInt()+1;
             QString tno=QString::number(tnoIndex);
             while(tno.size()<4){
                 tno="0"+tno;

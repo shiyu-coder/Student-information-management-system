@@ -47,7 +47,7 @@ void AddStuWidget::on_ConfirmButton_clicked()
 {
     QStringList info;
     QSqlQuery query;
-    query.exec("select COUNT(Sno) from Student");
+    query.exec("select MAX(Sno) from Student");
     if(query.lastError().type()==QSqlError::NoError){
         if(query.next()){
             int snoIndex=query.value(0).toInt()+1;
