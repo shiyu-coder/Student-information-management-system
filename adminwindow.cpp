@@ -97,9 +97,32 @@ void AdminWindow::on_actionDeptManagement_triggered()
 
 void AdminWindow::on_actionDatabaseRenew_triggered()
 {
-    QSqlQuery query;
+    QSqlQuery query,query1,query2,query3;
+    query1.exec("Select   name  From   SysUsers");
+    if(query1.lastError().type()==QSqlError::NoError){
+        QStringList list;
+        while(query1.next()){
+            list<<query1.value(0).toString();
+        }
+        QSqlQuery q;
+        for(int i=0;i<list.size();i++){
+            if(list.at(i).size()>=2){
+                if(list.at(i).at(0)=='S'||list.at(i).at(0)=='T'){
+                    if(list.at(i).at(1)>='0' && list.at(i).at(1)<='9'){
+                        q.exec("EXEC sp_droplogin '"+list.at(i)+"'"+" EXEC sp_dropuser '"+list.at(i)+"'");
+                        if(q.lastError().type()!=QSqlError::NoError) qDebug()<<q.lastError().text();
+                    }
+                }
+            }
+        }
+    }
     query.exec("drop table S2A;drop table T2A;drop table Systbl;drop table ScholarAppli;drop table ScholarLst;drop table ProjectAppli;drop table ProjectLst;drop table CTime;drop table Tcourse;drop table Teacher;drop table Stu_Cour;drop table CourseBasic;drop table Student;drop table Dept");
+    query2.exec("select identity(int,1,1) flag,[name] names into #tmp from sysobjects where crdate>'2020-12-18' declare @tb varchar(1000) ,@a int,@b int,@sql varchar(8000) select @a=min(flag),@b=max(flag) from #tmp while @a<=@b begin select @tb=names from #tmp where flag=@a set @sql='drop view '+@tb exec(@sql) set @a=@a+1 end DROP TABLE #tmp select *   from sysobjects where crdate>'2020-12-18'");
+    query3.exec("select identity(int,1,1) flag,[name] names into #tmp from sysobjects where crdate>'2020-12-18' declare @tb varchar(1000) ,@a int,@b int,@sql varchar(8000) select @a=min(flag),@b=max(flag) from #tmp while @a<=@b begin select @tb=names from #tmp where flag=@a set @sql='drop user '+@tb exec(@sql) set @a=@a+1 end DROP TABLE #tmp select *   from sysobjects where crdate>'2020-12-18'");
+
     if(query.lastError().type()==QSqlError::NoError){
+
+
         QMessageBox::information(this,"数据库重置","数据库重置成功！");
     }else{
         QMessageBox::warning(this,"错误",query.lastError().text());

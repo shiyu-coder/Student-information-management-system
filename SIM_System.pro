@@ -43,6 +43,7 @@ SOURCES += \
     modifylessonwidget.cpp \
     modifystuwidget.cpp \
     modifyteacherwidget.cpp \
+    promsgwidget.cpp \
     scholarmsgwidget.cpp \
     student.cpp \
     studentwindow.cpp \
@@ -74,6 +75,7 @@ HEADERS += \
     modifylessonwidget.h \
     modifystuwidget.h \
     modifyteacherwidget.h \
+    promsgwidget.h \
     scholarmsgwidget.h \
     student.h \
     studentwindow.h \
@@ -102,6 +104,7 @@ FORMS += \
     modifylessonwidget.ui \
     modifystuwidget.ui \
     modifyteacherwidget.ui \
+    promsgwidget.ui \
     scholarmsgwidget.ui \
     studentwindow.ui \
     teacherwindow.ui \

@@ -55,18 +55,20 @@ void LogInWidget::on_toolButton_clicked()
     QString input_key=ui->KeyLineEdit->text();
     //管理员：0  教师：1  学生：2
     int input_type=ui->comboBox->currentIndex();
-    pd=new QProgressDialog(this);
-    pd->setRange(0,MAX_SEC);
-    pd->setWindowModality(Qt::WindowModal);
-    pd->setModal(true);
-    pd->setMinimumDuration(5);
-    pd->setWindowTitle("请稍后...");
-    pd->setFixedWidth(400);
-    pd->setValue(0);
-    pd->setValue(0);
-    pd->show();
+
+
     if(input_type==0){
         if(input_userName=="admin" && input_key=="123"){
+            pd=new QProgressDialog(this);
+            pd->setRange(0,MAX_SEC);
+            pd->setWindowModality(Qt::WindowModal);
+            pd->setModal(true);
+            pd->setMinimumDuration(5);
+            pd->setWindowTitle("请稍后...");
+            pd->setFixedWidth(400);
+            pd->setValue(0);
+            pd->setValue(0);
+            pd->show();
             AdminWindow *adminWindow;
             adminWindow=new AdminWindow();
             pd->setValue(MAX_SEC/5);
@@ -103,7 +105,17 @@ void LogInWidget::on_toolButton_clicked()
         DataQuery *query=DataQuery::getDataQuery();
         bool canLogIn=query->canLogInSIMS(input_userName,input_key,input_type);
         if(canLogIn){
+            pd=new QProgressDialog(this);
+            pd->setRange(0,MAX_SEC);
+            pd->setWindowModality(Qt::WindowModal);
+            pd->setModal(true);
+            pd->setMinimumDuration(5);
+            pd->setWindowTitle("请稍后...");
+            pd->setFixedWidth(400);
+            pd->setValue(0);
+            pd->setValue(0);
             if(input_type==1){
+                pd->show();
                 Data* data=Data::getData();
                 data->tno=input_userName;
 
@@ -126,6 +138,7 @@ void LogInWidget::on_toolButton_clicked()
                 teacherWindow->show();
                 this->close();
             }else if(input_type==2){
+                pd->show();
                 Data* data=Data::getData();
                 data->sno=input_userName;
                 StudentWindow *studentWindow=new StudentWindow();

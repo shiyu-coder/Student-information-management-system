@@ -139,3 +139,19 @@ void TeacherWindow::on_AddApplyButton_clicked()
     AddMsgWidget *widget=new AddMsgWidget();
     widget->show();
 }
+
+void TeacherWindow::on_ProWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+    ProMsgWidget *widget=new ProMsgWidget();
+    QString con=item->text();
+    QString name;
+    for(int i=0;i<con.size();i++){
+        if(con.at(i)==' '){
+            break;
+        }else{
+            name+=con.at(i);
+        }
+    }
+    widget->setName(name);
+    widget->show();
+}
