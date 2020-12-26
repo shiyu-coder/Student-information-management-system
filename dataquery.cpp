@@ -105,18 +105,18 @@ QString DataQuery::insertLesson(QString cno,QString cname,QString cchar,QString 
     QString climit = "50";
     QString ccur="0";
     QString sql="insert into CourseBasic values('"+cno+"'";
-    if(cchar.size()>0) sql+=",'"+cname+"'";
+    if(cname!="NULL"&&cname.size()>0) sql+=",'"+cname+"'";
     else sql+=",NULL";
 
     sql+=","+climit+","+ccur;
 
-    if(cchar.size()>0) sql+=",'"+cchar+"'";
+    if(cchar!="NULL"&&cchar.size()>0) sql+=",'"+cchar+"'";
     else sql+=",NULL";
 
-    if(cdept.size()>0) sql+=",'"+cdept+"'";
+    if(cdept!="NULL"&&cdept.size()>0) sql+=",'"+cdept+"'";
     else sql+=",NULL";
 
-    if(ccredit.size()>0) sql+=",'"+ccredit+"'";
+    if(ccredit!="NULL"&&ccredit.size()>0) sql+=",'"+ccredit+"'";
     else sql+=",NULL";
 
     sql+=",'"+cgrade+"')";

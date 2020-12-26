@@ -243,7 +243,13 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
             QSqlQuery query2;
             qDebug()<<"tno----"<<tno;
             QStringList sqls;
-            sqls<<"create login T"+tno+" with password='123456', default_database=E_Chain;";
+            QString res;
+            QSqlQuery query3,query4;
+            query3.exec("create login T"+tno+" with password='123456', default_database=E_Chain;");
+            query4.exec("create login T"+tno+" with password='123456', default_database=E_Chain_Database;");
+            if(query3.lastError().type()!=QSqlError::NoError && query4.lastError().type()!=QSqlError::NoError){
+                res+=query3.lastError().text()+"\n"+query4.lastError().text();
+            }
             sqls<<"create user T"+tno+" for login T"+tno+" with default_schema=dbo";
             sqls<<"GRANT SELECT ON CourseBasic TO T"+tno+"";
             sqls<<"GRANT SELECT ON CTime TO T"+tno+"";
@@ -263,7 +269,6 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
             sqls<<"CREATE VIEW T"+tno+"_TP AS SELECT Sno, ProjectName, Reason, Response FROM ProjectAppli, ProjectLst WHERE ProjectLst.Tno='"+tno+"' AND ProjectAppli.ProjectName=ProjectLst.ProgramName";
             sqls<<"GRANT SELECT, UPDATE(Response) ON T"+tno+"_TP TO T"+tno+"";
 
-            QString res;
             for(int i=0;i<sqls.size();i++){
                 query2.exec(sqls.at(i));
                 if(query2.lastError().type()!=QSqlError::NoError){
@@ -273,6 +278,13 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
         }
     }else{
         QMessageBox::warning(this,"查询教师列表错误",query.lastError().text());
+    }
+
+    //删除院系“NULL”
+    QSqlQuery querynull;
+    querynull.exec("update CourseBasic set Cdept='' where Cdept='NULL'; delete from Dept where Dname='NULL'");
+    if(querynull.lastError().type()!=QSqlError::NoError){
+        ui->spiderMsg->append(data->getCurrentTime()+"Delete Dept named 'NULL' failed!");
     }
 
     ui->spiderMsg->append(data->getCurrentTime()+"Successfully imported "+QString::number(count)+" courses");
