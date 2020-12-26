@@ -68,7 +68,13 @@ void AddStuWidget::on_ConfirmButton_clicked()
     query.exec("insert into Student values('"+info.at(0)+"','"+info.at(1)+"','"+info.at(2)+"','"+info.at(3)+"','"+info.at(4)+"')");
     if(query.lastError().type()==QSqlError::NoError){
         QStringList sqls;
-        sqls<<"create login S"+info.at(0)+" with password='123456', default_database=E_Chain";
+        QString res;
+        QSqlQuery query1,query2;
+        query1.exec("create login S"+info.at(0)+" with password='123456', default_database=E_Chain");
+        query2.exec("create login S"+info.at(0)+" with password='123456', default_database=E_Chain_Database");
+        if(query1.lastError().type()!=QSqlError::NoError && query2.lastError().type()!=QSqlError::NoError){
+            res+=query1.lastError().text()+"\n"+query2.lastError().text();
+        }
         sqls<<"create user S"+info.at(0)+" for login S"+info.at(0)+" with default_schema=dbo";
         sqls<<"CREATE VIEW S"+info.at(0)+"_Info AS SELECT Sno , Sname, Ssex, Sdept, Sgrade FROM Student WHERE Sno='"+info.at(0)+"'";
         sqls<<"GRANT SELECT ON S"+info.at(0)+"_Info TO S"+info.at(0);
@@ -94,7 +100,7 @@ void AddStuWidget::on_ConfirmButton_clicked()
         sqls<<"CREATE VIEW S"+info.at(0)+"_Scho AS SELECT Scholarship, Reason, Response FROM ScholarAppli WHERE Sno='"+info.at(0)+"'";
         sqls<<"GRANT SELECT, UPDATE(Scholarship, Reason),INSERT ON S"+info.at(0)+"_Scho TO S"+info.at(0);
 
-        QString res;
+
         for(int i=0;i<sqls.size();i++){
             query.exec(sqls.at(i));
             if(query.lastError().type()==QSqlError::NoError){

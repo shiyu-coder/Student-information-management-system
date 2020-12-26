@@ -47,7 +47,13 @@ void AddTeacherWidget::on_ConfirmButton_clicked()
             if(query.lastError().type()==QSqlError::NoError){
                 QSqlQuery query2;
                 QStringList sqls;
-                sqls<<"create login T"+tno+" with password='123456', default_database=E_Chain;";
+                QString res;
+                QSqlQuery query3,query4;
+                query3.exec("create login T"+tno+" with password='123456', default_database=E_Chain;");
+                query4.exec("create login T"+tno+" with password='123456', default_database=E_Chain_Database;");
+                if(query3.lastError().type()!=QSqlError::NoError && query4.lastError().type()!=QSqlError::NoError){
+                    res+=query3.lastError().text()+"\n"+query4.lastError().text();
+                }
                 sqls<<"create user T"+tno+" for login T"+tno+" with default_schema=dbo";
                 sqls<<"GRANT SELECT ON CourseBasic TO T"+tno+"";
                 sqls<<"GRANT SELECT ON CTime TO T"+tno+"";
@@ -67,8 +73,6 @@ void AddTeacherWidget::on_ConfirmButton_clicked()
                 sqls<<"CREATE VIEW T"+tno+"_TP AS SELECT Sno, ProjectName, Reason, Response FROM ProjectAppli, ProjectLst WHERE ProjectLst.Tno='"+tno+"' AND ProjectAppli.ProjectName=ProjectLst.ProgramName";
                 sqls<<"GRANT SELECT, UPDATE(Response) ON T"+tno+"_TP TO T"+tno+"";
 
-
-                QString res;
                 for(int i=0;i<sqls.size();i++){
                     query2.exec(sqls.at(i));
                     if(query2.lastError().type()!=QSqlError::NoError){
