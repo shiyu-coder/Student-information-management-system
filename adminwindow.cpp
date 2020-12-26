@@ -425,3 +425,73 @@ void AdminWindow::on_ModifyStudentButton_clicked()
         widget->show();
     }
 }
+
+void AdminWindow::on_FindLessonButton_clicked()
+{
+    QList<QTableWidgetItem*> items=ui->LessonWidget->selectedItems();
+    if(items.size()<=0){
+        QMessageBox::warning(this,"错误","您没有选中任何课程！");
+    }else{
+        QString res;
+        QSqlQuery query;
+        for(int i=0;i<items.size();i++){
+            int index=ui->LessonWidget->row(items.at(i));
+            query.exec("delete from CourseBasic where Cno='"+ui->LessonWidget->item(index,0)->text()+"'");
+            if(query.lastError().text()!=QSqlError::NoError){
+                res+=query.lastError().text();
+            }
+        }
+        if(res==""){
+            QMessageBox::warning(this,"删除课程","删除课程成功！");
+        }else{
+            QMessageBox::information(this,"删除课程",res);
+        }
+
+    }
+}
+
+void AdminWindow::on_DeleteTeacherButton_clicked()
+{
+    QList<QTableWidgetItem*> items=ui->TeacherWidget->selectedItems();
+    if(items.size()<=0){
+        QMessageBox::warning(this,"错误","您没有选中任何学生！");
+    }else{
+        QString res;
+        QSqlQuery query;
+        for(int i=0;i<items.size();i++){
+            int index=ui->TeacherWidget->row(items.at(i));
+            query.exec("delete from Teacher where Tno='"+ui->TeacherWidget->item(index,0)->text()+"'");
+            if(query.lastError().type()!=QSqlError::NoError){
+                res+=query.lastError().text();
+            }
+        }
+        if(res==""){
+            QMessageBox::information(this,"删除教师","删除教师成功！");
+        }else{
+            QMessageBox::warning(this,"删除教师",query.lastError().text());
+        }
+    }
+}
+
+void AdminWindow::on_DeleteStudentButton_clicked()
+{
+    QList<QTableWidgetItem*> items=ui->StudentWidget->selectedItems();
+    if(items.size()<=0){
+        QMessageBox::warning(this,"错误","您没有选中任何学生！");
+    }else{
+        QString res;
+        QSqlQuery query;
+        for(int i=0;i<items.size();i++){
+            int index=ui->StudentWidget->row(items.at(i));
+            query.exec("delete from Student where Sno='"+ui->StudentWidget->item(index,0)->text()+"'");
+            if(query.lastError().type()!=QSqlError::NoError){
+                res+=query.lastError().text();
+            }
+        }
+        if(res==""){
+            QMessageBox::information(this,"删除学生","删除学生成功！");
+        }else{
+            QMessageBox::warning(this,"删除学生",query.lastError().text());
+        }
+    }
+}

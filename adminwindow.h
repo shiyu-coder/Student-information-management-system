@@ -78,6 +78,12 @@ private slots:
 
     void on_ModifyStudentButton_clicked();
 
+    void on_FindLessonButton_clicked();
+
+    void on_DeleteTeacherButton_clicked();
+
+    void on_DeleteStudentButton_clicked();
+
 private:
     Ui::AdminWindow *ui;
 
