@@ -118,7 +118,7 @@ void TeacherWindow::on_StudentLessonBox_currentIndexChanged(const QString &arg1)
     ui->StudentWidget->clearContents();
     ui->StudentWidget->setRowCount(0);
     QSqlQuery query;
-    query.exec("select CourseBasic.Cno,Cname,Ssex,Sdept,Sgrade from Student,Stu_Cour,CourseBasic where CourseBasic.Cno=Stu_Cour.Cno and Stu_Cour.Sno=Student.Sno and Cname='"+arg1+"'");
+    query.exec("select Stu_Cour.Sno,Sname,Ssex,Sdept,Sgrade,Grade from Student,Stu_Cour,CourseBasic where CourseBasic.Cno=Stu_Cour.Cno and Stu_Cour.Sno=Student.Sno and Cname='"+arg1+"'");
     if(query.lastError().type()==QSqlError::NoError){
         while(query.next()){
             ui->StudentWidget->setRowCount(ui->StudentWidget->rowCount()+1);
@@ -127,6 +127,7 @@ void TeacherWindow::on_StudentLessonBox_currentIndexChanged(const QString &arg1)
             ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,2,new QTableWidgetItem(query.value(2).toString()));
             ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,3,new QTableWidgetItem(query.value(3).toString()));
             ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,4,new QTableWidgetItem(query.value(4).toString()));
+            ui->StudentWidget->setItem(ui->StudentWidget->rowCount()-1,5,new QTableWidgetItem(query.value(5).toString()));
 
         }
     }else{
@@ -154,4 +155,22 @@ void TeacherWindow::on_ProWidget_itemDoubleClicked(QListWidgetItem *item)
     }
     widget->setName(name);
     widget->show();
+}
+
+void TeacherWindow::on_toolButton_clicked()
+{
+    QList<QTableWidgetItem*> items=ui->StudentWidget->selectedItems();
+    if(items.size()<=0){
+        QMessageBox::warning(this,"错误","您没有选中任何学生！");
+    }else{
+        QString name=ui->StudentLessonBox->currentText();
+        QStringList cnos;
+        for(int i=0;i<items.size();i++){
+            int index=ui->StudentWidget->row(items.at(i));
+            cnos<<ui->StudentWidget->item(index,0)->text();
+        }
+        ModifyGradeWidget *widget=new ModifyGradeWidget();
+        widget->setMsg(name,cnos);
+        widget->show();
+    }
 }

@@ -186,7 +186,7 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
        </rect>
       </property>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>243</number>
+       <number>202</number>
       </attribute>
       <column>
        <property name="text">
@@ -211,6 +211,11 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
       <column>
        <property name="text">
         <string>入学年级</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>课程成绩</string>
        </property>
       </column>
      </widget>
@@ -245,6 +250,30 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
          </property>
          <property name="text">
           <string>刷新</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButton">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
+hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
+         </property>
+         <property name="text">
+          <string>录入成绩</string>
          </property>
         </widget>
        </item>

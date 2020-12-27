@@ -126,7 +126,7 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
        </rect>
       </property>
       <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>118</number>
+       <number>135</number>
       </attribute>
       <column>
        <property name="text">
@@ -156,11 +156,6 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
       <column>
        <property name="text">
         <string>学分</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>开课院系</string>
        </property>
       </column>
       <column>

@@ -123,7 +123,7 @@ void StudentWindow::on_FlushButton_1_clicked()
     QSqlQuery query;
     Data* data=Data::getData();
     QString sno=data->sno;
-    query.exec("select CourseBasic.Cno,Cname,Cchar,Climit,Ccur,Cdept,Ccredit,Cgrade,Stu_Cour.Cterm from CourseBasic,Stu_Cour where CourseBasic.Cno=Stu_Cour.Cno and Stu_Cour.Sno='"+data->sno+"'");
+    query.exec("select CourseBasic.Cno,Cname,Cchar,Climit,Ccur,Cdept,Ccredit,Cgrade,Stu_Cour.Cterm,Grade from CourseBasic,Stu_Cour where CourseBasic.Cno=Stu_Cour.Cno and Stu_Cour.Sno='"+data->sno+"'");
     if(query.lastError().type()==QSqlError::NoError){
         while(query.next()){
 
@@ -143,11 +143,10 @@ void StudentWindow::on_FlushButton_1_clicked()
                 qDebug()<<teaQuery.lastError().text();
             }
             ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,3,new QTableWidgetItem(tea));
-            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,4,new QTableWidgetItem(query.value(3).toString()));
-            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,5,new QTableWidgetItem(query.value(4).toString()));
-            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,6,new QTableWidgetItem(query.value(5).toString()));
-            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,7,new QTableWidgetItem(query.value(6).toString()));
-            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,8,new QTableWidgetItem(query.value(7).toString()));
+            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,4,new QTableWidgetItem(query.value(5).toString()));
+            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,5,new QTableWidgetItem(query.value(6).toString()));
+            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,6,new QTableWidgetItem(query.value(7).toString()));
+            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,8,new QTableWidgetItem(query.value(9).toString()));
             QSqlQuery timeQuery;
             timeQuery.exec("select Wday,Cbegin,Cend from CTime where Cno='"+query.value(0).toString()+"' and Cterm='"+query.value(8).toString()+"'");
             QString time;
@@ -155,13 +154,13 @@ void StudentWindow::on_FlushButton_1_clicked()
             timeThansfer<<"一"<<"二"<<"三"<<"四"<<"五"<<"六"<<"日";
             if(timeQuery.lastError().type()==QSqlError::NoError){
                 while(timeQuery.next()){
-                    time+="周"+timeThansfer.at(timeQuery.value(0).toInt())+" 第"+timeQuery.value(1).toString()+"-"+timeQuery.value(2).toString()+"节 ";
+                    time+="周"+timeThansfer.at(timeQuery.value(0).toInt()-1)+" 第"+timeQuery.value(1).toString()+"-"+timeQuery.value(2).toString()+"节 ";
                 }
             }else{
                 QMessageBox::warning(this,"查询课程时间信息错误",timeQuery.lastError().text());
             }
 
-            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,9,new QTableWidgetItem(time));
+            ui->MyLessonWidget->setItem(ui->MyLessonWidget->rowCount()-1,7,new QTableWidgetItem(time));
         }
     }else{
         QMessageBox::warning(this,"查询课程信息错误",query.lastError().text());
@@ -273,7 +272,7 @@ void StudentWindow::on_ChooseLessonButton_clicked()
                 QString term;
                 if(ui->LessonWidget->item(index,9)->text()=="第一学期") term="1";
                 else term="2";
-                query.exec("insert into Stu_Cour values('"+data->sno+"','"+ui->LessonWidget->item(index,0)->text()+"','"+term+"',"+ui->LessonWidget->item(index,8)->text()+"); update CourseBasic set Ccur=Ccur+1 where Cno='"+ui->LessonWidget->item(index,0)->text()+"'");
+                query.exec("insert into Stu_Cour values('"+data->sno+"','"+ui->LessonWidget->item(index,0)->text()+"','"+term+"',''); update CourseBasic set Ccur=Ccur+1 where Cno='"+ui->LessonWidget->item(index,0)->text()+"'");
                 if(query.lastError().type()==QSqlError::NoError){
 
                 }else{

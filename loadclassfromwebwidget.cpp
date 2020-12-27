@@ -254,7 +254,7 @@ void LoadClassFromWebWidget::getLessonMsgFromHtml(){
             sqls<<"GRANT SELECT ON CourseBasic TO T"+tno+"";
             sqls<<"GRANT SELECT ON CTime TO T"+tno+"";
             sqls<<"GRANT SELECT ON Tcourse TO T"+tno+"";
-            sqls<<"GRANT SELECT ON Stu_Cour TO T"+tno+"";
+            sqls<<"GRANT SELECT,UPDATE ON Stu_Cour TO T"+tno+"";
             sqls<<"GRANT SELECT ON Teacher TO T"+tno+"";
             sqls<<"GRANT SELECT,INSERT,DELETE ON ScholarAppli TO T"+tno+"";
             sqls<<"GRANT SELECT,INSERT,DELETE ON ScholarLst TO T"+tno+"";

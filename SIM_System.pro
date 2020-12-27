@@ -40,6 +40,7 @@ SOURCES += \
     mainwindow.cpp \
     modifyapplywidget.cpp \
     modifydeptmsgwidget.cpp \
+    modifygradewidget.cpp \
     modifylessonwidget.cpp \
     modifystuwidget.cpp \
     modifyteacherwidget.cpp \
@@ -72,6 +73,7 @@ HEADERS += \
     mainwindow.h \
     modifyapplywidget.h \
     modifydeptmsgwidget.h \
+    modifygradewidget.h \
     modifylessonwidget.h \
     modifystuwidget.h \
     modifyteacherwidget.h \
@@ -101,6 +103,7 @@ FORMS += \
     mainwindow.ui \
     modifyapplywidget.ui \
     modifydeptmsgwidget.ui \
+    modifygradewidget.ui \
     modifylessonwidget.ui \
     modifystuwidget.ui \
     modifyteacherwidget.ui \

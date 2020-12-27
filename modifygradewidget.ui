@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ModifyGradeWidget</class>
+ <widget class="QWidget" name="ModifyGradeWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>198</width>
+    <height>93</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>修改成绩</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="SIMS_res.qrc">
+    <normaloff>:/SIM_System_Pics/resources/icon_login_2.png</normaloff>:/SIM_System_Pics/resources/icon_login_2.png</iconset>
+  </property>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>161</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>成绩</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>60</y>
+     <width>47</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>确定</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="SIMS_res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
