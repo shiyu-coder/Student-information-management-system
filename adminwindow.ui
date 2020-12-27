@@ -180,17 +180,6 @@ hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QToolButton" name="AddLessonButton">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(255, 255, 255, 0);border:2px solid white;border-radius:10px;
-hover{ background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;background-color: rgba(255, 255, 255, 150);border:2px solid white;border-radius:10px;}</string>
-         </property>
-         <property name="text">
-          <string>新增课程</string>
-         </property>
-        </widget>
-       </item>
       </layout>
      </widget>
     </widget>

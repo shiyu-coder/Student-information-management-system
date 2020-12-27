@@ -84,6 +84,7 @@ private slots:
 
     void on_DeleteStudentButton_clicked();
 
+
 private:
     Ui::AdminWindow *ui;
 
