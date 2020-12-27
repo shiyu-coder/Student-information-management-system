@@ -1,5 +1,5 @@
 # Student information management system
-学生信息管理系统
+## Potato Minus 南京大学信息门户
 IDE：Qt Creator 5.14及以上版本
 编译环境：MSVC2017_64bit
 
