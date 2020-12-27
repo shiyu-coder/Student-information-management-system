@@ -30,7 +30,7 @@ LogInWidget::LogInWidget(QWidget *parent) :
                 qApp->quit();
             }
         }else{
-            QMessageBox::warning(this,"数据库初始化错误",res);
+            QMessageBox::information(this,"数据库初始化",res);
             if(iniFile.open(QIODevice::WriteOnly|QIODevice::Text)){
                 iniFile.close();
             }else{
