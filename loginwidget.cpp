@@ -20,26 +20,15 @@ LogInWidget::LogInWidget(QWidget *parent) :
         QString res0=query->connectToDatabase("sa","9638527410.s");
         if(res0!="") qApp->quit();
         QString res=query->init();
-        if(res==""){
-            if(iniFile.open(QIODevice::WriteOnly|QIODevice::Text)){
-                iniFile.close();
-            }else{
-                //出现了无法解决的错误，直接退出程序
-                QMessageBox::warning(this,"错误",iniFile.errorString());
-                this->destroy();
-                qApp->quit();
-            }
+        if(iniFile.open(QIODevice::WriteOnly|QIODevice::Text)){
+            iniFile.close();
         }else{
-            QMessageBox::information(this,"数据库初始化",res);
-            if(iniFile.open(QIODevice::WriteOnly|QIODevice::Text)){
-                iniFile.close();
-            }else{
-                //出现了无法解决的错误，直接退出程序
-                QMessageBox::warning(this,"错误",iniFile.errorString());
-                this->destroy();
-                qApp->quit();
-            }
+            //出现了无法解决的错误，直接退出程序
+            QMessageBox::warning(this,"错误",iniFile.errorString());
+            this->destroy();
+            qApp->quit();
         }
+        QMessageBox::information(this,"数据库初始化",res);
     }
 }
 
