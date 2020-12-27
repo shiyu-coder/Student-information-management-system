@@ -3,31 +3,5 @@
 IDE：Qt Creator 5.14及以上版本
 编译环境：MSVC2017_64bit
 
-## 程序设计
-
-### 功能类
-
-#### 课程类 Lesson
-
-##### 私有变量
-
-课程编号、课程名称、性质、开课院系、学分、学时、校区、教师、上课时间及地点、详细信息
-
-#### 学生类 Student
-
-#### 教师类 Teacher
-
-#### 数据库操作类 DataQuery
-
-### 窗口类
-
-#### 登录窗口类 LoginWidget
-
-#### 管理员窗口类 AdminWindow
-
-#### 教师窗口类 TeacherWindow
-
-#### 学生窗口类 StudentWindow
-
-
-
+注意：由于Qt NetworkEngine组件的兼容性问题，程序的导入课程功能在部分Windows10系统上无法使用。
+目前确认能够支持的为使用.NET Framework 4.8 的系统。
